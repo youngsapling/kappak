@@ -12,6 +12,6 @@ import org.springframework.stereotype.Repository;
 public class TestDAO {
 
     public void add(String name){
-        System.out.println("TestDAO" + name);
+        System.out.println("TestDAO1" + name);
     }
 }
