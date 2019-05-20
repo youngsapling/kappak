@@ -1,7 +1,5 @@
 package com.ysl.easyconnection.controller;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.ysl.easyconnection.entity.User;
 import com.ysl.easyconnection.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
