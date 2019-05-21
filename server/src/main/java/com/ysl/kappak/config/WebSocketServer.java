@@ -1,11 +1,15 @@
 package com.ysl.kappak.config;
 
+import com.google.common.base.Strings;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-import javax.servlet.http.HttpSession;
+
 import javax.websocket.*;
+import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
 import java.io.IOException;
-import java.util.concurrent.CopyOnWriteArraySet;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -14,15 +18,16 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @modifyTime :
  * @description : copy from https://blog.csdn.net/j903829182/article/details/78342941?tdsourcetag=s_pctim_aiomsg
  */
-@ServerEndpoint(value = "/websocket",configurator = GetHttpSessionConfigurator.class)
+@ServerEndpoint(value = "/websocket", configurator = GetHttpSessionConfigurator.class)
 @Component
+@Slf4j
 public class WebSocketServer {
     /**
      * 线程安全的Integer
      */
     private static AtomicInteger onlineCount;
     //concurrent包的线程安全Set，用来存放每个客户端对应的MyWebSocket对象。
-    private static CopyOnWriteArraySet<WebSocketServer> webSocketSet = new CopyOnWriteArraySet<WebSocketServer>();
+    private static Map<String, WebSocketServer> webSocketMap = new ConcurrentHashMap<>();
     //与某个客户端的连接会话，需要通过它来给客户端发送数据
     private Session session;
 
@@ -30,22 +35,20 @@ public class WebSocketServer {
      * 连接建立成功调用的方法
      */
     @OnOpen
-    public void onOpen(Session session, EndpointConfig config) {
-        this.session = session;
-        HttpSession httpSession = (HttpSession) config.getUserProperties().get(HttpSession.class.getName());
-        System.out.println("name is : " + httpSession.getAttribute("name"));
-        //sessionMap.put(session.getId(), session);
-        System.out.println("the session is : " + session.getId());
-        System.out.println("session content is : " + session.getId());
-        System.out.println("httpSession  is : " + httpSession.getId());
-        webSocketSet.add(this);     //加入set中
-        addOnlineCount();           //在线数加1
-        System.out.println("有新连接加入！当前在线人数为" + getOnlineCount());
-        try {
-            //sendMessage(CommonConstant.CURRENT_WANGING_NUMBER.toString());
-            sendMessage("22222222");
-        } catch (IOException e) {
-            System.out.println("IO异常");
+    public void onOpen(@PathParam(value = "userName") String userName, Session session, EndpointConfig config) {
+        if (!Strings.isNullOrEmpty(userName)) {
+            this.session = session;
+            WebSocketServer old = webSocketMap.put(userName, this);
+            if (null != old) {
+                try {
+                    if(old.session.isOpen()){
+                        old.session.close();
+                    }
+                } catch (IOException e) {
+                    log.error("关闭旧的连接失败, {}", e.getMessage());
+                }
+            }
+            log.info("{} 用户建立连接成功！", userName);
         }
     }
 
@@ -53,10 +56,10 @@ public class WebSocketServer {
      * 连接关闭调用的方法
      */
     @OnClose
-    public void onClose() {
-        webSocketSet.remove(this);  //从set中删除
-        subOnlineCount();           //在线数减1
-        System.out.println("有一连接关闭！当前在线人数为" + getOnlineCount());
+    public void onClose(@PathParam(value = "userName") String userName) {
+        if (!Strings.isNullOrEmpty(userName)) {
+            webSocketMap.remove(userName);
+        }
     }
 
     /**
@@ -65,16 +68,13 @@ public class WebSocketServer {
      * @param message 客户端发送过来的消息
      */
     @OnMessage
-    public void onMessage(String message, Session session) {
-        System.out.println("来自客户端的消息:" + message);
-        System.out.println("onMessage sessionId is : " + session.getId());
-        //群发消息
-        for (WebSocketServer item : webSocketSet) {
-            try {
-                item.sendMessage(message);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+    public void onMessage(@PathParam(value = "userName") String userName, String message, Session session) {
+        // 转发给指定的客户端后台
+        WebSocketServer webSocketServer = webSocketMap.get(userName);
+        try {
+            webSocketServer.sendMessage(message);
+        } catch (IOException e) {
+            log.error("转发给后台[{}]失败, e:", userName, e.getStackTrace());
         }
     }
 
@@ -88,21 +88,11 @@ public class WebSocketServer {
     }
 
     public void sendMessage(String message) throws IOException {
-        this.session.getBasicRemote().sendText(message + " : sendMessage id is : " + this.session.getId());
-        //this.session.getAsyncRemote().sendText(message);
+        this.session.getBasicRemote().sendText(message);
     }
 
-    /**
-     * 群发自定义消息
-     */
-    public static void sendInfo(String message) throws IOException {
-        for (WebSocketServer item : webSocketSet) {
-            try {
-                item.sendMessage(message);
-            } catch (IOException e) {
-                continue;
-            }
-        }
+    public static WebSocketServer getTarget(String name){
+        return webSocketMap.get(name);
     }
 
     public static synchronized int getOnlineCount() {
