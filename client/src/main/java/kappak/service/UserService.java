@@ -1,6 +1,6 @@
-package com.ysl.easyconnection.service;
+package kappak.service;
 
-import com.ysl.easyconnection.entity.User;
+import kappak.entity.User;
 import org.springframework.stereotype.Service;
 
 /**

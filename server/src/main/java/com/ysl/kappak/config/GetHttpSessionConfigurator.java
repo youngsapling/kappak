@@ -1,4 +1,4 @@
-package com.ysl.easyconnection.config;
+package com.ysl.kappak.config;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;

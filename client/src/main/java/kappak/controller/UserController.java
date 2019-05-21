@@ -1,7 +1,7 @@
-package com.ysl.easyconnection.controller;
+package kappak.controller;
 
-import com.ysl.easyconnection.entity.User;
-import com.ysl.easyconnection.service.UserService;
+import kappak.entity.User;
+import kappak.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

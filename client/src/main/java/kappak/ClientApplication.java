@@ -1,4 +1,4 @@
-package easyconnection;
+package kappak;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

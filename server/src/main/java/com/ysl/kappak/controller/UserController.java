@@ -1,0 +1,29 @@
+package com.ysl.kappak.controller;
+
+import com.ysl.kappak.entity.User;
+import com.ysl.kappak.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+/**
+ * @author ：youngsapling
+ * @date ：Created in 2019/5/19 15:02
+ * @modifyTime :
+ * @description :
+ */
+@RestController
+@RequestMapping("/user")
+public class UserController {
+
+    @Autowired
+    UserService userService;
+
+    @RequestMapping("/get")
+    public User get(@RequestBody User param){
+        User byId = userService.findById(param);
+        return byId;
+    }
+
+}

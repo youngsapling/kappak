@@ -1,4 +1,4 @@
-package com.ysl.easyconnection.dao;
+package com.ysl.kappak.dao;
 
 import org.springframework.stereotype.Repository;
 

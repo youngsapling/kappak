@@ -1,4 +1,4 @@
-package com.ysl.easyconnection.config;
+package com.ysl.kappak.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;

@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>com.ysl</groupId>
-    <artifactId>easyconnection</artifactId>
+    <artifactId>kappak</artifactId>
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
     <name>ec</name>

@@ -1,4 +1,4 @@
-package com.ysl.easyconnection.entity;
+package kappak.entity;
 
 import lombok.Data;
 

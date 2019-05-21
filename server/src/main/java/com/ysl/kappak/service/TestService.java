@@ -1,6 +1,6 @@
-package com.ysl.easyconnection.service;
+package com.ysl.kappak.service;
 
-import com.ysl.easyconnection.dao.TestDAO;
+import com.ysl.kappak.dao.TestDAO;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

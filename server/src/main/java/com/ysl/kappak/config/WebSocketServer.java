@@ -1,4 +1,4 @@
-package com.ysl.easyconnection.config;
+package com.ysl.kappak.config;
 
 import org.springframework.stereotype.Component;
 import javax.servlet.http.HttpSession;

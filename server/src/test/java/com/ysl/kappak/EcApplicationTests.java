@@ -1,4 +1,4 @@
-package com.ysl.easyconnection;
+package com.ysl.kappak;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
