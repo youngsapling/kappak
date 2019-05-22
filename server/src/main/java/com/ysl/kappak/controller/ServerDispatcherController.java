@@ -5,6 +5,7 @@ import com.ysl.kappak.config.WebSocketServer;
 import com.ysl.kappak.entity.Bee;
 import com.ysl.kappak.util.IdWorker;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -20,10 +21,11 @@ import java.io.IOException;
  * @description :
  */
 @RestController
-@RequestMapping("/**")
+@RequestMapping("/44")
 @Slf4j
 public class ServerDispatcherController {
-
+    @Autowired
+    WebSocketServer webSocketServer;
 
     @RequestMapping()
     public Object server(String json) {
@@ -35,7 +37,7 @@ public class ServerDispatcherController {
         Bee build = Bee.builder().uri(url).id(id).jsonObject(jsonObject).build();
         // 怎么样能拿到全量的参数, 暂时把参数都放置在json中.
         String targetName = request.getHeader("target");
-        WebSocketServer targetWS = WebSocketServer.getTarget(targetName);
+        WebSocketServer targetWS = webSocketServer.getTarget(targetName);
         try {
             targetWS.sendMessage(JSONObject.toJSONString(build));
         } catch (IOException e) {

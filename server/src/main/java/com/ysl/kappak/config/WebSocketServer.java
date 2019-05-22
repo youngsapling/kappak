@@ -18,7 +18,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @modifyTime :
  * @description : copy from https://blog.csdn.net/j903829182/article/details/78342941?tdsourcetag=s_pctim_aiomsg
  */
-@ServerEndpoint(value = "/websocket", configurator = GetHttpSessionConfigurator.class)
+@ServerEndpoint(value = "/server", configurator = GetHttpSessionConfigurator.class)
 @Component
 @Slf4j
 public class WebSocketServer {
@@ -48,6 +48,7 @@ public class WebSocketServer {
                     log.error("关闭旧的连接失败, {}", e.getMessage());
                 }
             }
+            addOnlineCount();
             log.info("{} 用户建立连接成功！", userName);
         }
     }
@@ -60,6 +61,7 @@ public class WebSocketServer {
         if (!Strings.isNullOrEmpty(userName)) {
             webSocketMap.remove(userName);
         }
+        subOnlineCount();
     }
 
     /**
@@ -91,7 +93,7 @@ public class WebSocketServer {
         this.session.getBasicRemote().sendText(message);
     }
 
-    public static WebSocketServer getTarget(String name){
+    public WebSocketServer getTarget(String name){
         return webSocketMap.get(name);
     }
 
