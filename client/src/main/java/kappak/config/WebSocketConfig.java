@@ -58,12 +58,6 @@ public class WebSocketConfig {
                 }
             };
             webSocketClient.connect();
-            AtomicInteger atomicInteger = new AtomicInteger();
-            while(!webSocketClient.getReadyState().equals(WebSocket.READYSTATE.OPEN) && atomicInteger.get() <= 10){
-                System.out.println("还没有打开");
-                atomicInteger.incrementAndGet();
-            }
-            System.out.println("打开了");
             return webSocketClient;
         } catch (Exception e) {
             e.printStackTrace();
