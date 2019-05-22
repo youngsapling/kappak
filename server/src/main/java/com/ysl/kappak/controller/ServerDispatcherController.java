@@ -21,7 +21,7 @@ import java.io.IOException;
  * @description :
  */
 @RestController
-@RequestMapping("/44")
+@RequestMapping("/**")
 @Slf4j
 public class ServerDispatcherController {
     @Autowired

@@ -9,6 +9,7 @@ import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
 import java.io.IOException;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -18,14 +19,14 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @modifyTime :
  * @description : copy from https://blog.csdn.net/j903829182/article/details/78342941?tdsourcetag=s_pctim_aiomsg
  */
-@ServerEndpoint(value = "/server/{userName}", configurator = GetHttpSessionConfigurator.class)
+@ServerEndpoint(value = "/server/{userName}")
 @Component
 @Slf4j
 public class WebSocketServer {
     /**
      * 线程安全的Integer
      */
-    private static AtomicInteger onlineCount;
+    private static AtomicInteger onlineCount = new AtomicInteger(0);
     //concurrent包的线程安全Set，用来存放每个客户端对应的MyWebSocket对象。
     private static Map<String, WebSocketServer> webSocketMap = new ConcurrentHashMap<>();
     //与某个客户端的连接会话，需要通过它来给客户端发送数据
@@ -36,6 +37,8 @@ public class WebSocketServer {
      */
     @OnOpen
     public void onOpen(@PathParam(value = "userName") String userName, Session session, EndpointConfig config) {
+        Set<MessageHandler> messageHandlers = session.getMessageHandlers();
+
         if (!Strings.isNullOrEmpty(userName)) {
             this.session = session;
             WebSocketServer old = webSocketMap.put(userName, this);

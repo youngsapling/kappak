@@ -29,12 +29,12 @@ public class WebSocketConfig {
     @Value("${client.name}")
     String myName;
 
-//    @Bean
+    @Bean
     public WebSocketClient webSocketClient() {
         try {
-            String uri = "ws://localhost:9090/server/" + myName;
+            String uri = "ws://127.0.0.1:9090/server/" + myName;
             Map<String, String> httpHeaders = new HashMap<>(2);
-
+            httpHeaders.put("name", myName);
             WebSocketClient webSocketClient = new WebSocketClient(new URI(uri), new Draft_6455(), httpHeaders,
                     100) {
                 @Override
