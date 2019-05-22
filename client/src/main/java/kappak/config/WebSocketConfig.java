@@ -10,6 +10,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import java.net.URI;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -27,12 +29,14 @@ public class WebSocketConfig {
     @Value("${client.name}")
     String myName;
 
-    @Bean
-
+//    @Bean
     public WebSocketClient webSocketClient() {
         try {
-            String uri = "ws://192.168.60.159:9090/server/" + myName;
-            WebSocketClient webSocketClient = new WebSocketClient(new URI(uri), new Draft_6455()) {
+            String uri = "ws://localhost:9090/server/" + myName;
+            Map<String, String> httpHeaders = new HashMap<>(2);
+
+            WebSocketClient webSocketClient = new WebSocketClient(new URI(uri), new Draft_6455(), httpHeaders,
+                    100) {
                 @Override
                 public void onOpen(ServerHandshake serverHandshake) {
                     log.info("[webSocket] 连接成功");

@@ -18,7 +18,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @modifyTime :
  * @description : copy from https://blog.csdn.net/j903829182/article/details/78342941?tdsourcetag=s_pctim_aiomsg
  */
-@ServerEndpoint(value = "/server", configurator = GetHttpSessionConfigurator.class)
+@ServerEndpoint(value = "/server/{userName}", configurator = GetHttpSessionConfigurator.class)
 @Component
 @Slf4j
 public class WebSocketServer {
