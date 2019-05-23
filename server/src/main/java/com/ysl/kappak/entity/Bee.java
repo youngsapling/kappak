@@ -1,8 +1,9 @@
 package com.ysl.kappak.entity;
 
-import com.alibaba.fastjson.JSONObject;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @author ：youngsapling
@@ -12,6 +13,8 @@ import lombok.Data;
  */
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Bee {
     /**
      * 目标uri

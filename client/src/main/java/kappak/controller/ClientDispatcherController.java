@@ -33,7 +33,6 @@ public class ClientDispatcherController {
     @Autowired
     RequestMappingHandlerMapping handlerMapping;
 
-    @RequestMapping("/test")
     public String dispatcher(String uri, String json) throws InvocationTargetException, IllegalAccessException {
         Map<RequestMappingInfo, HandlerMethod> handlerMethods = handlerMapping.getHandlerMethods();
         Iterator<?> iterator = handlerMethods.entrySet().iterator();
