@@ -52,15 +52,18 @@ public class WebSocketConfig {
                 @Override
                 public void onMessage(String message) {
                     log.info("[webSocket] 收到消息={}", message);
-                    Bee bee = JSON.parseObject(message, Bee.class);
-                    Long id = bee.getId();
-                    String dispatcher;
+                    Bee highBee = JSON.parseObject(message, Bee.class);
+                    Long id = highBee.getId();
+                    String toSource = null;
                     try {
-                        dispatcher = clientDispatcherController.dispatcher(bee.getUri(), bee.getJsonString());
+                        toSource = clientDispatcherController.dispatcher(highBee.getUri(), highBee.getJsonString());
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
                     // 消息回推回去.
+                    Bee lowBee = Bee.builder().id(id).jsonString(toSource).build();
+                    log.info("[webSocket] 返回消息={}", JSON.toJSONString(lowBee));
+                    this.send(JSON.toJSONString(lowBee));
                 }
 
                 @Override

@@ -3,9 +3,12 @@ package com.ysl.kappak.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.ysl.kappak.config.WebSocketServer;
 import com.ysl.kappak.entity.Bee;
+import com.ysl.kappak.request.RequestBodyHttpServletRequestWrapper;
+import com.ysl.kappak.util.HttpHelper;
 import com.ysl.kappak.util.IdWorker;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -28,16 +31,22 @@ public class ServerDispatcherController {
     WebSocketServer webSocketServer;
 
     @RequestMapping()
-    public Object server(String json) {
+    public Object server() {
         // 获取实际调用方法
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
-        String url = request.getRequestURI();
+        RequestBodyHttpServletRequestWrapper wrapper = (RequestBodyHttpServletRequestWrapper) request;
+        String url = wrapper.getRequestURI();
         Long id = IdWorker.createId();
-        String jsonString = json;
+        String jsonString = null;
+        try {
+            jsonString = HttpHelper.getBodyString(wrapper);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         Bee build = Bee.builder().uri(url).id(id).jsonString(jsonString).build();
         // 怎么样能拿到全量的参数, 暂时把参数都放置在json中.
         // 在请求头中标识要调用的后端名称.
-        String targetName = request.getHeader("target");
+        String targetName = wrapper.getHeader("target");
         WebSocketServer targetWS = webSocketServer.getTarget(targetName);
         try {
             targetWS.sendMessage(JSONObject.toJSONString(build));
