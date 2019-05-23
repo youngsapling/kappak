@@ -30,13 +30,15 @@ public class WebSocketConfig {
      */
     @Value("${client.name}")
     String myName;
+    @Value("${client.path}")
+    String path;
     @Autowired
     ClientDispatcherController clientDispatcherController;
 
     @Bean
     public WebSocketClient webSocketClient() {
         try {
-            String uri = "ws://127.0.0.1:9090/server/" + myName;
+            String uri = path + myName;
             Map<String, String> httpHeaders = new HashMap<>(2);
             httpHeaders.put("name", myName);
             WebSocketClient webSocketClient = new WebSocketClient(new URI(uri), new Draft_6455(), httpHeaders,

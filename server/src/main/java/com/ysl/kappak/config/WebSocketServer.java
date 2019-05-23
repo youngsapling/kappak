@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.ContextLoader;
 
+import javax.servlet.http.HttpSession;
 import javax.websocket.*;
 import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
@@ -45,6 +46,7 @@ public class WebSocketServer {
     public void onOpen(@PathParam(value = "userName") String userName, Session session, EndpointConfig config) {
         if (!Strings.isNullOrEmpty(userName)) {
             this.session = session;
+
             WebSocketServer old = webSocketMap.put(userName, this);
             if (null != old) {
                 try {

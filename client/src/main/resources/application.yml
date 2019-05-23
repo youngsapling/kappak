@@ -1,9 +1,8 @@
 server:
   port: 9091
-spring:
-  application:
-    name: websocket-server
+
 
 client:
+  path: ws://127.0.0.1:9090/server/
   name: yangle
 
