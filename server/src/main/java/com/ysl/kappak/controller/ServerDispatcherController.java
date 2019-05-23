@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.ysl.kappak.config.WebSocketServer;
 import com.ysl.kappak.entity.Bee;
 import com.ysl.kappak.request.RequestBodyHttpServletRequestWrapper;
+import com.ysl.kappak.util.Contants;
 import com.ysl.kappak.util.HttpHelper;
 import com.ysl.kappak.util.IdWorker;
 import lombok.extern.slf4j.Slf4j;
@@ -15,6 +16,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author ：youngsapling
@@ -28,6 +30,8 @@ import java.io.IOException;
 public class ServerDispatcherController {
     @Autowired
     WebSocketServer webSocketServer;
+    @Autowired
+    MessageServer messageServer;
 
     @RequestMapping()
     public Object server() {
@@ -42,17 +46,33 @@ public class ServerDispatcherController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Bee build = Bee.builder().uri(url).id(id).jsonString(jsonString).build();
+        Bee highBee = Bee.builder().uri(url).id(id).jsonString(jsonString).build();
         // 怎么样能拿到全量的参数, 暂时把参数都放置在json中.
         // 在请求头中标识要调用的后端名称.
         String targetName = wrapper.getHeader("target");
         WebSocketServer targetWS = webSocketServer.getTarget(targetName);
         try {
-            targetWS.sendMessage(JSONObject.toJSONString(build));
+            // 发送
+            targetWS.sendMessage(JSONObject.toJSONString(highBee));
         } catch (IOException e) {
             log.error("发送给[{}]时异常, exception:{}", targetName, e.getMessage());
         }
-        return null;
+        // 阻塞等待结果.
+        AtomicInteger poll = new AtomicInteger(0);
+        String lowBeeString = null;
+        while (null == lowBeeString && poll.get() < Contants.POLL){
+            poll.incrementAndGet();
+            lowBeeString = messageServer.get(id);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        if(null == lowBeeString){
+            log.error("已等待20秒, 没有获取到结果.");
+        }
+        return lowBeeString;
     }
 
 }

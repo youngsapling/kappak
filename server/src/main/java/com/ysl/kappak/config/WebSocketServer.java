@@ -1,8 +1,13 @@
 package com.ysl.kappak.config;
 
+import com.alibaba.fastjson.JSON;
 import com.google.common.base.Strings;
+import com.ysl.kappak.controller.MessageServer;
+import com.ysl.kappak.entity.Bee;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.ContextLoader;
 
 import javax.websocket.*;
 import javax.websocket.server.PathParam;
@@ -27,8 +32,9 @@ public class WebSocketServer {
      * 线程安全的Integer
      */
     private static AtomicInteger onlineCount = new AtomicInteger(0);
-    //concurrent包的线程安全Set，用来存放每个客户端对应的MyWebSocket对象。
+    //concurrent包的线程安全Map，用来存放每个客户端对应的MyWebSocket对象。
     private static Map<String, WebSocketServer> webSocketMap = new ConcurrentHashMap<>();
+    protected static MessageServer messageServer;
     //与某个客户端的连接会话，需要通过它来给客户端发送数据
     private Session session;
 
@@ -37,14 +43,12 @@ public class WebSocketServer {
      */
     @OnOpen
     public void onOpen(@PathParam(value = "userName") String userName, Session session, EndpointConfig config) {
-        Set<MessageHandler> messageHandlers = session.getMessageHandlers();
-
         if (!Strings.isNullOrEmpty(userName)) {
             this.session = session;
             WebSocketServer old = webSocketMap.put(userName, this);
             if (null != old) {
                 try {
-                    if(old.session.isOpen()){
+                    if (old.session.isOpen()) {
                         old.session.close();
                     }
                 } catch (IOException e) {
@@ -73,14 +77,12 @@ public class WebSocketServer {
      * @param message 客户端发送过来的消息
      */
     @OnMessage
-    public void onMessage(@PathParam(value = "userName") String userName, String message, Session session) {
-        // 转发给指定的客户端后台
-        WebSocketServer webSocketServer = webSocketMap.get(userName);
-        try {
-            webSocketServer.sendMessage(message);
-        } catch (IOException e) {
-            log.error("转发给后台[{}]失败, e:", userName, e.getStackTrace());
-        }
+    public void onMessage(String message, Session session) {
+        // 获取到了client端执行的结果.
+        Bee lowBee = JSON.parseObject(message, Bee.class);
+        Long id = lowBee.getId();
+        String jsonString = lowBee.getJsonString();
+        messageServer.put(id, jsonString);
     }
 
     /**
@@ -96,7 +98,7 @@ public class WebSocketServer {
         this.session.getBasicRemote().sendText(message);
     }
 
-    public WebSocketServer getTarget(String name){
+    public WebSocketServer getTarget(String name) {
         return webSocketMap.get(name);
     }
 

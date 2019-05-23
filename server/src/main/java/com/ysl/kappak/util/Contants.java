@@ -7,5 +7,12 @@ package com.ysl.kappak.util;
  * @description : 常量类
  */
 public class Contants {
+    /**
+     * 请求方式
+     */
     public static final String POST = "POST";
+    /**
+     * 轮询次数
+     */
+    public static final int POLL = 20;
 }

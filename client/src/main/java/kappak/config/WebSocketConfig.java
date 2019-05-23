@@ -43,13 +43,13 @@ public class WebSocketConfig {
                     100) {
                 @Override
                 public void onOpen(ServerHandshake serverHandshake) {
-                    log.info("[webSocket] 连接成功");
+                    log.info("[{}] 连接成功", myName);
                 }
 
                 @Override
                 public void onMessage(String message) {
                     try {
-                        log.info("[webSocket] 收到消息={}", message);
+                        log.info("[client] 收到消息={}", message);
                         Bee highBee = JSON.parseObject(message, Bee.class);
                         Long id = highBee.getId();
                         String toSource = null;
@@ -58,9 +58,9 @@ public class WebSocketConfig {
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-                        // 消息回推回去.
+                        // 消息回推.
                         Bee lowBee = Bee.builder().id(id).jsonString(toSource).build();
-                        log.info("[webSocket] 返回消息={}", JSON.toJSONString(lowBee));
+                        log.info("[client] 返回消息={}", JSON.toJSONString(lowBee));
                         this.send(JSON.toJSONString(lowBee));
                     } catch (Exception e){
                         e.printStackTrace();
@@ -69,12 +69,12 @@ public class WebSocketConfig {
 
                 @Override
                 public void onClose(int code, String reason, boolean remote) {
-                    log.info("[webSocket] 退出连接");
+                    log.info("[client] 退出连接, [], []", code, reason);
                 }
 
                 @Override
                 public void onError(Exception ex) {
-                    log.info("[webSocket] 连接错误={}", ex.getMessage());
+                    log.info("[client] 连接错误={}", ex.getMessage());
                 }
             };
             webSocketClient.connect();

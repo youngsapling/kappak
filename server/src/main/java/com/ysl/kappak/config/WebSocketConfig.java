@@ -1,5 +1,7 @@
 package com.ysl.kappak.config;
 
+import com.ysl.kappak.controller.MessageServer;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.socket.server.standard.ServerEndpointExporter;
@@ -15,5 +17,10 @@ public class WebSocketConfig {
     @Bean
     public ServerEndpointExporter serverEndpointExporter(){
         return new ServerEndpointExporter();
+    }
+
+    @Autowired
+    public void setMessageServer(MessageServer messageServer){
+        WebSocketServer.messageServer = messageServer;
     }
 }
