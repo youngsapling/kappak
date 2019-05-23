@@ -24,8 +24,8 @@ import java.util.Set;
  * @description : 客户端分发器
  */
 @RestController
-@RequestMapping("/hello")
-public class CilentDispatcherController {
+@RequestMapping("/clientController")
+public class ClientDispatcherController {
     @Autowired
     DispatcherServlet dispatcherServlet;
     @Autowired
@@ -34,7 +34,7 @@ public class CilentDispatcherController {
     RequestMappingHandlerMapping handlerMapping;
 
     @RequestMapping("/test")
-    public Object test(String uri, String json) throws InvocationTargetException, IllegalAccessException {
+    public String dispatcher(String uri, String json) throws InvocationTargetException, IllegalAccessException {
         Map<RequestMappingInfo, HandlerMethod> handlerMethods = handlerMapping.getHandlerMethods();
         Iterator<?> iterator = handlerMethods.entrySet().iterator();
         // 第一版简单匹配获取hm

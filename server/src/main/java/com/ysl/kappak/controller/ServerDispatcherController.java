@@ -33,9 +33,10 @@ public class ServerDispatcherController {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         String url = request.getRequestURI();
         Long id = IdWorker.createId();
-        JSONObject jsonObject = JSONObject.parseObject(json);
-        Bee build = Bee.builder().uri(url).id(id).jsonObject(jsonObject).build();
+        String jsonString = json;
+        Bee build = Bee.builder().uri(url).id(id).jsonString(jsonString).build();
         // 怎么样能拿到全量的参数, 暂时把参数都放置在json中.
+        // 在请求头中标识要调用的后端名称.
         String targetName = request.getHeader("target");
         WebSocketServer targetWS = webSocketServer.getTarget(targetName);
         try {

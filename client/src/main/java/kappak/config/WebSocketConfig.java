@@ -1,18 +1,23 @@
 package kappak.config;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import kappak.controller.ClientDispatcherController;
+import kappak.entity.Bee;
 import lombok.extern.slf4j.Slf4j;
 import org.java_websocket.WebSocket;
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.drafts.Draft_6455;
 import org.java_websocket.handshake.ServerHandshake;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
+import java.lang.reflect.InvocationTargetException;
 import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author: youngsapling
@@ -28,6 +33,8 @@ public class WebSocketConfig {
      */
     @Value("${client.name}")
     String myName;
+    @Autowired
+    ClientDispatcherController clientDispatcherController;
 
     @Bean
     public WebSocketClient webSocketClient() {
@@ -45,6 +52,15 @@ public class WebSocketConfig {
                 @Override
                 public void onMessage(String message) {
                     log.info("[webSocket] 收到消息={}", message);
+                    Bee bee = JSON.parseObject(message, Bee.class);
+                    Long id = bee.getId();
+                    String dispatcher;
+                    try {
+                        dispatcher = clientDispatcherController.dispatcher(bee.getUri(), bee.getJsonString());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    // 消息回推回去.
                 }
 
                 @Override

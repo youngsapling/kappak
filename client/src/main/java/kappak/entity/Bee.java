@@ -1,4 +1,4 @@
-package com.ysl.kappak.entity;
+package kappak.entity;
 
 import com.alibaba.fastjson.JSONObject;
 import lombok.Builder;
