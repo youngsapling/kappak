@@ -53,6 +53,7 @@ public class ClientDispatcherController {
         Object beanController = applicationContext.getBean(beanType);
         MethodParameter[] methodParameters = hm.getMethodParameters();
         Class<?> parameterType = null;
+        // 暂时只支持方法参数只有一个对象.
         for (MethodParameter mp : methodParameters) {
             parameterType = mp.getParameterType();
         }
