@@ -56,6 +56,7 @@ public class ServerDispatcherController {
             targetWS.sendMessage(JSONObject.toJSONString(highBee));
         } catch (IOException e) {
             log.error("发送给[{}]时异常, exception:{}", targetName, e.getMessage());
+            return new Bee();
         }
         // 阻塞等待结果.
         AtomicInteger poll = new AtomicInteger(0);
@@ -74,5 +75,4 @@ public class ServerDispatcherController {
         }
         return lowBeeString;
     }
-
 }
