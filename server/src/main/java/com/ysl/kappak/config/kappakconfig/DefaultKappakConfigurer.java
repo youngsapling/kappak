@@ -20,10 +20,10 @@ public class DefaultKappakConfigurer implements KappakConfigurer {
     public void addReTryEr(RetryerRegistry retryerRegistry) {
         Retryer retryer = RetryerBuilder
                 .<Boolean>newBuilder()
-                //抛出runtime异常、checked异常时都会重试，但是抛出error不会重试。
-                .retryIfException()
                 //返回false也需要重试
                 .retryIfResult(Predicates.equalTo(false))
+                //抛出runtime异常、checked异常时都会重试，但是抛出error不会重试。
+                .retryIfException()
                 //重调策略
                 .withWaitStrategy(WaitStrategies.fixedWait(500, TimeUnit.MILLISECONDS))
                 //尝试次数
