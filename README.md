@@ -4,7 +4,7 @@
 
 几种可自定义的组件
 
-组件的定义方式完全和WebMvcConfigurer的使用方式一样. 
+  -组件的定义方式完全和WebMvcConfigurer的使用方式一样. 
 
 1. 自定义地址映射器, 继承IUriSelector函数式接口, 并将映射器注册到client端的KappakConfigurer.addUrISelector()中.
 2. 自定义方法参数解析器, 继承IParamResolver函数式接口, 并将解析器注册到client端的KappakConfigurer.addMethodParameterResolver()中.
