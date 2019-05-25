@@ -15,4 +15,8 @@
 1. url , 请求地址是 server端地址 + client端方法相对路径. 
 2. 在请求头中添加 clientName : 目标后端. 请求方式为Post, 数据类型为json.
 3. 暂时不支持url路径中包含 通配符 和 ${id} 的方式.
-![image](https://github.com/youngsapling/kappak/images/20190525162003.png)
+
+![image](https://github.com/youngsapling/kappak/blob/master/images/20190525162003.png)
+
+
+                      -- 我变强了, 也变秃了.
