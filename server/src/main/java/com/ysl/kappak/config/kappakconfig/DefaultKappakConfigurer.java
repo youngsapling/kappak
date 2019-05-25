@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
  * @modifyTime :
  * @description : 默认的配置器
  */
-public class DefaultKappakConfig implements KappakConfig {
+public class DefaultKappakConfigurer implements KappakConfigurer {
     @Override
     public void addReTryEr(RetryerRegistry retryerRegistry) {
         Retryer retryer = RetryerBuilder

@@ -2,6 +2,7 @@ package kappak.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import kappak.config.kappakconfig.KappakConfigWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.MethodParameter;
@@ -32,32 +33,19 @@ public class ClientDispatcherController {
     ApplicationContext applicationContext;
     @Autowired
     RequestMappingHandlerMapping handlerMapping;
+    @Autowired
+    KappakConfigWrapper kappakConfigWrapper;
 
     public String dispatcher(String uri, String json) throws InvocationTargetException, IllegalAccessException {
-        Map<RequestMappingInfo, HandlerMethod> handlerMethods = handlerMapping.getHandlerMethods();
-        Iterator<?> iterator = handlerMethods.entrySet().iterator();
-        // 第一版简单匹配获取hm
-        HandlerMethod hm = null;
-        while (iterator.hasNext()) {
-            Map.Entry<RequestMappingInfo, HandlerMethod> entry = (Map.Entry) iterator.next();
-            Set<String> patterns = entry.getKey().getPatternsCondition().getPatterns();
-            if (patterns.contains(uri)) {
-                hm = entry.getValue();
-                break;
-            }
-        }
+        // 调用uri映射器
+        HandlerMethod hm = kappakConfigWrapper.getUriSelectorRegistry().getUriSelector().select(uri, handlerMapping);
         if (hm == null) {
             return null;
         }
         Class<?> beanType = hm.getBeanType();
         Object beanController = applicationContext.getBean(beanType);
-        MethodParameter[] methodParameters = hm.getMethodParameters();
-        Class<?> parameterType = null;
-        // 暂时只支持方法参数只有一个对象.
-        for (MethodParameter mp : methodParameters) {
-            parameterType = mp.getParameterType();
-        }
-        Object args = JSONObject.parseObject(json, parameterType);
+        // 调用方法参数解析器
+        Object args = kappakConfigWrapper.getParamResolverRegistry().getParamResolver().parseParam(hm, json);
         Object invoke = hm.getMethod().invoke(beanController, args);
         return JSON.toJSONString(invoke);
     }

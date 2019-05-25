@@ -1,6 +1,7 @@
-package com.ysl.kappak.config.kappakconfig;
+package kappak.config.kappakconfig;
 
-import com.ysl.kappak.config.kappakconfig.dto.RetryerRegistry;
+import kappak.config.kappakconfig.dto.ParamResolverRegistry;
+import kappak.config.kappakconfig.dto.UriSelectorRegistry;
 import lombok.Data;
 import org.springframework.beans.BeansException;
 import org.springframework.boot.ApplicationArguments;
@@ -22,7 +23,8 @@ import java.util.Map;
 @Component
 public class KappakConfigWrapper implements ApplicationContextAware, ApplicationRunner {
     private ApplicationContext ac;
-    private RetryerRegistry retryerRegistry;
+    private UriSelectorRegistry uriSelectorRegistry;
+    private ParamResolverRegistry paramResolverRegistry;
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
@@ -31,17 +33,22 @@ public class KappakConfigWrapper implements ApplicationContextAware, Application
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
+        uriSelectorRegistry = new UriSelectorRegistry();
+        paramResolverRegistry = new ParamResolverRegistry();
         Map<String, KappakConfigurer> kappakConfigMap = ac.getBeansOfType(KappakConfigurer.class);
         // 默认的执行一遍
-        KappakConfigurer kappakConfigurer = new DefaultKappakConfigurer();
-        this.retryerRegistry = new RetryerRegistry();
-        kappakConfigurer.addReTryEr(this.retryerRegistry);
+        KappakConfigurer defaultKappakConfigurer = new DefaultKappakConfigurer();
+        defaultKappakConfigurer.addUrISelector(uriSelectorRegistry);
+        defaultKappakConfigurer.addMethodParameterResolver(paramResolverRegistry);
+
         // 用户自定义的执行一遍
+        KappakConfigurer userKappakConfigurer = null;
         if(!CollectionUtils.isEmpty(kappakConfigMap)){
             for (KappakConfigurer mvcConfig : kappakConfigMap.values()){
-                kappakConfigurer = mvcConfig;
+                userKappakConfigurer = mvcConfig;
             }
         }
-        kappakConfigurer.addReTryEr(this.retryerRegistry);
+        userKappakConfigurer.addUrISelector(uriSelectorRegistry);
+        userKappakConfigurer.addMethodParameterResolver(paramResolverRegistry);
     }
 }
