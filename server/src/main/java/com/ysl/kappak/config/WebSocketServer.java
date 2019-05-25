@@ -22,7 +22,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @modifyTime :
  * @description : copy from https://blog.csdn.net/j903829182/article/details/78342941?tdsourcetag=s_pctim_aiomsg
  */
-@ServerEndpoint(value = "/kappak/{clientName}", configurator = GetHttpSessionConfigurator.class)
+@ServerEndpoint(value = "/kappak", configurator = GetHttpSessionConfigurator.class)
 @Component
 @Slf4j
 public class WebSocketServer {
@@ -40,7 +40,8 @@ public class WebSocketServer {
      * 连接建立成功调用的方法
      */
     @OnOpen
-    public void onOpen(@PathParam(value = "clientName") String clientName, Session session, EndpointConfig config) {
+    public void onOpen(Session session, EndpointConfig config) {
+        String clientName = (String) config.getUserProperties().get("clientName");
         if (!Strings.isNullOrEmpty(clientName)) {
             this.session = session;
             HttpSession httpSession = (HttpSession) config.getUserProperties().get(HttpSession.class.getName());

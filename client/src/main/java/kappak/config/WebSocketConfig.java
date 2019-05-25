@@ -38,7 +38,7 @@ public class WebSocketConfig {
     @Bean
     public WebSocketClient webSocketClient() {
         try {
-            String uri = path + myName;
+            String uri = path;
             Map<String, String> httpHeaders = new HashMap<>(2);
             httpHeaders.put("clientName", myName);
             WebSocketClient webSocketClient = new WebSocketClient(new URI(uri), new Draft_6455(), httpHeaders,
