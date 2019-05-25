@@ -24,6 +24,11 @@ public class MessageServer {
 
     public String get(Long id){
         String s = this.messageMap.get(id);
+        return s;
+    }
+
+    public String getAndRemove(Long id){
+        String s = this.messageMap.get(id);
         this.messageMap.remove(id);
         return s;
     }

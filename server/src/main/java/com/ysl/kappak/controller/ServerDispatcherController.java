@@ -1,6 +1,9 @@
 package com.ysl.kappak.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.github.rholder.retry.*;
+import com.google.common.base.Predicates;
+import com.google.common.base.Strings;
 import com.ysl.kappak.config.WebSocketServer;
 import com.ysl.kappak.entity.Bee;
 import com.ysl.kappak.request.RequestBodyHttpServletRequestWrapper;
@@ -16,6 +19,9 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -49,29 +55,41 @@ public class ServerDispatcherController {
         Bee highBee = Bee.builder().uri(url).id(id).jsonString(jsonString).build();
         // 怎么样能拿到全量的参数, 暂时把参数都放置在json中.
         // 在请求头中标识要调用的后端名称.
-        String targetName = wrapper.getHeader("target");
-        WebSocketServer targetWS = webSocketServer.getTarget(targetName);
+        String clientName = wrapper.getHeader("clientName");
+        WebSocketServer targetWS = webSocketServer.getTarget(clientName);
         try {
             // 发送
             targetWS.sendMessage(JSONObject.toJSONString(highBee));
         } catch (IOException e) {
-            log.error("发送给[{}]时异常, exception:{}", targetName, e.getMessage());
+            log.error("发送给[{}]时异常, exception:{}", clientName, e.getMessage());
             return new Bee();
         }
-        // 阻塞等待结果.
-        AtomicInteger poll = new AtomicInteger(0);
+
         String lowBeeString = null;
-        while (null == lowBeeString && poll.get() < Contants.POLL){
-            poll.incrementAndGet();
-            lowBeeString = messageServer.get(id);
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+        Callable<Boolean> getResult = () -> !Strings.isNullOrEmpty(messageServer.get(id));
+        Retryer<Boolean> retryer = RetryerBuilder
+                .<Boolean>newBuilder()
+                //抛出runtime异常、checked异常时都会重试，但是抛出error不会重试。
+                .retryIfException()
+                //返回false也需要重试
+                .retryIfResult(Predicates.equalTo(false))
+                //重调策略
+                .withWaitStrategy(WaitStrategies.fixedWait(1, TimeUnit.SECONDS))
+                //尝试次数
+                .withStopStrategy(StopStrategies.stopAfterAttempt(20))
+                .build();
+        try {
+            retryer.call(getResult);
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (RetryException e) {
+            e.printStackTrace();
         }
-        if(null == lowBeeString){
+
+        lowBeeString = messageServer.getAndRemove(id);
+        if(null == lowBeeString) {
             log.error("已等待20秒, 没有获取到结果.");
+            lowBeeString = "已等待20秒, 没有获取到结果.";
         }
         return lowBeeString;
     }

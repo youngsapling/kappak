@@ -28,8 +28,8 @@ public class WebSocketConfig {
     /**
      * 配置文件中填写.
      */
-    @Value("${client.name}")
-    String myName;
+    @Value("${client.clientName}")
+    String clientName;
     @Value("${client.path}")
     String path;
     @Autowired
@@ -40,12 +40,12 @@ public class WebSocketConfig {
         try {
             String uri = path;
             Map<String, String> httpHeaders = new HashMap<>(2);
-            httpHeaders.put("clientName", myName);
+            httpHeaders.put("clientName", clientName);
             WebSocketClient webSocketClient = new WebSocketClient(new URI(uri), new Draft_6455(), httpHeaders,
                     100) {
                 @Override
                 public void onOpen(ServerHandshake serverHandshake) {
-                    log.info("[{}] 连接成功", myName);
+                    log.info("[{}] 连接成功", clientName);
                 }
 
                 @Override
