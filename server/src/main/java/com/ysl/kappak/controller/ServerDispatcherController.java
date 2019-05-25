@@ -1,13 +1,13 @@
 package com.ysl.kappak.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.github.rholder.retry.*;
-import com.google.common.base.Predicates;
+import com.github.rholder.retry.RetryException;
+import com.github.rholder.retry.Retryer;
 import com.google.common.base.Strings;
 import com.ysl.kappak.config.WebSocketServer;
+import com.ysl.kappak.config.kappakconfig.KappakConfigWrapper;
 import com.ysl.kappak.entity.Bee;
 import com.ysl.kappak.request.RequestBodyHttpServletRequestWrapper;
-import com.ysl.kappak.util.Contants;
 import com.ysl.kappak.util.HttpHelper;
 import com.ysl.kappak.util.IdWorker;
 import lombok.extern.slf4j.Slf4j;
@@ -21,8 +21,6 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author ：youngsapling
@@ -38,6 +36,8 @@ public class ServerDispatcherController {
     WebSocketServer webSocketServer;
     @Autowired
     MessageServer messageServer;
+    @Autowired
+    KappakConfigWrapper kappakConfigWrapper;
 
     @RequestMapping()
     public Object server() {
@@ -48,12 +48,12 @@ public class ServerDispatcherController {
         Long id = IdWorker.createId();
         String jsonString = null;
         try {
-            jsonString = HttpHelper.getBodyString(wrapper);
+            // 暂时把参数都放置在json中.
+            jsonString = HttpHelper.getRequestBodyString(wrapper);
         } catch (IOException e) {
             e.printStackTrace();
         }
         Bee highBee = Bee.builder().uri(url).id(id).jsonString(jsonString).build();
-        // 怎么样能拿到全量的参数, 暂时把参数都放置在json中.
         // 在请求头中标识要调用的后端名称.
         String clientName = wrapper.getHeader("clientName");
         WebSocketServer targetWS = webSocketServer.getTarget(clientName);
@@ -67,17 +67,7 @@ public class ServerDispatcherController {
 
         String lowBeeString = null;
         Callable<Boolean> getResult = () -> !Strings.isNullOrEmpty(messageServer.get(id));
-        Retryer<Boolean> retryer = RetryerBuilder
-                .<Boolean>newBuilder()
-                //抛出runtime异常、checked异常时都会重试，但是抛出error不会重试。
-                .retryIfException()
-                //返回false也需要重试
-                .retryIfResult(Predicates.equalTo(false))
-                //重调策略
-                .withWaitStrategy(WaitStrategies.fixedWait(1, TimeUnit.SECONDS))
-                //尝试次数
-                .withStopStrategy(StopStrategies.stopAfterAttempt(20))
-                .build();
+        Retryer<Boolean> retryer =kappakConfigWrapper.getRetryerRegistry().getRetryer();
         try {
             retryer.call(getResult);
         } catch (ExecutionException e) {

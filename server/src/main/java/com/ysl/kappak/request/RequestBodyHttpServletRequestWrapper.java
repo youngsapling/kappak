@@ -24,7 +24,7 @@ public class RequestBodyHttpServletRequestWrapper extends HttpServletRequestWrap
 
     public RequestBodyHttpServletRequestWrapper(HttpServletRequest request) throws IOException {
         super(request);
-        String stringBody = HttpHelper.getBodyString(request);
+        String stringBody = HttpHelper.getRequestBodyString(request);
         body = stringBody.getBytes(Charset.forName("utf-8"));
     }
 

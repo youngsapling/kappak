@@ -15,7 +15,7 @@ import java.nio.charset.Charset;
  */
 public class HttpHelper {
 
-    public static String getBodyString(HttpServletRequest request) throws IOException {
+    public static String getRequestBodyString(HttpServletRequest request) throws IOException {
         StringBuilder sb = new StringBuilder();
         InputStream inputStream = null;
         BufferedReader reader = null;
