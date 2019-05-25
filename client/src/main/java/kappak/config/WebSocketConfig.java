@@ -40,7 +40,7 @@ public class WebSocketConfig {
         try {
             String uri = path + myName;
             Map<String, String> httpHeaders = new HashMap<>(2);
-            httpHeaders.put("name", myName);
+            httpHeaders.put("clientName", myName);
             WebSocketClient webSocketClient = new WebSocketClient(new URI(uri), new Draft_6455(), httpHeaders,
                     100) {
                 @Override

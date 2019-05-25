@@ -1,5 +1,7 @@
 package com.ysl.kappak.config;
 
+import org.springframework.stereotype.Component;
+
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionContext;
@@ -7,17 +9,24 @@ import javax.websocket.HandshakeResponse;
 import javax.websocket.server.HandshakeRequest;
 import javax.websocket.server.ServerEndpointConfig;
 import java.util.Enumeration;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author ：youngsapling
  * @date ：Created in 2019/5/20 22:21
  * @modifyTime :
  * @description : copy from https://blog.csdn.net/j903829182/article/details/78342941?tdsourcetag=s_pctim_aiomsg
+ *  从请求头中获取client端的name
  */
+@Component
 public class GetHttpSessionConfigurator extends ServerEndpointConfig.Configurator {
     @Override
     public void modifyHandshake(ServerEndpointConfig sec, HandshakeRequest request, HandshakeResponse response) {
         HttpSession httpSession = (HttpSession)request.getHttpSession();
+        Map<String, List<String>> headers = request.getHeaders();
+        String name = headers.get("clientName") == null ? "" : headers.get("clientName").get(0);
+        sec.getUserProperties().put("clientName", name);
         //解决httpSession为null的情况
         if (httpSession == null){
             httpSession = new HttpSession() {

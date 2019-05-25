@@ -7,6 +7,7 @@ import com.ysl.kappak.entity.Bee;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
+import javax.servlet.http.HttpSession;
 import javax.websocket.*;
 import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
@@ -21,7 +22,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @modifyTime :
  * @description : copy from https://blog.csdn.net/j903829182/article/details/78342941?tdsourcetag=s_pctim_aiomsg
  */
-@ServerEndpoint(value = "/server/{userName}")
+@ServerEndpoint(value = "/kappak/{clientName}", configurator = GetHttpSessionConfigurator.class)
 @Component
 @Slf4j
 public class WebSocketServer {
@@ -39,11 +40,11 @@ public class WebSocketServer {
      * 连接建立成功调用的方法
      */
     @OnOpen
-    public void onOpen(@PathParam(value = "userName") String userName, Session session, EndpointConfig config) {
-        if (!Strings.isNullOrEmpty(userName)) {
+    public void onOpen(@PathParam(value = "clientName") String clientName, Session session, EndpointConfig config) {
+        if (!Strings.isNullOrEmpty(clientName)) {
             this.session = session;
-
-            WebSocketServer old = webSocketMap.put(userName, this);
+            HttpSession httpSession = (HttpSession) config.getUserProperties().get(HttpSession.class.getName());
+            WebSocketServer old = webSocketMap.put(clientName, this);
             if (null != old) {
                 try {
                     if (old.session.isOpen()) {
@@ -54,7 +55,7 @@ public class WebSocketServer {
                 }
             }
             addOnlineCount();
-            log.info("{} 用户建立连接成功！", userName);
+            log.info("{} 用户建立连接成功！", clientName);
         }
     }
 
@@ -62,9 +63,9 @@ public class WebSocketServer {
      * 连接关闭调用的方法
      */
     @OnClose
-    public void onClose(@PathParam(value = "userName") String userName) {
-        if (!Strings.isNullOrEmpty(userName)) {
-            webSocketMap.remove(userName);
+    public void onClose(@PathParam(value = "clientName") String clientName) {
+        if (!Strings.isNullOrEmpty(clientName)) {
+            webSocketMap.remove(clientName);
         }
         subOnlineCount();
     }

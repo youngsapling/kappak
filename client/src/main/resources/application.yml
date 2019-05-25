@@ -3,6 +3,6 @@ server:
 
 
 client:
-  path: ws://127.0.0.1:9090/server/
+  path: ws://127.0.0.1:9090/kappak/
   name: yangle
 
