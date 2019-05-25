@@ -30,12 +30,12 @@ public class RequestBodyHttpServletRequestWrapper extends HttpServletRequestWrap
 
     @Override
     public ServletInputStream getInputStream() throws IOException {
-        final ByteArrayInputStream bais = new ByteArrayInputStream(body);
+        final ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(body);
 
         return new ServletInputStream() {
             @Override
             public int read() throws IOException {
-                return bais.read();
+                return byteArrayInputStream.read();
             }
 
             @Override

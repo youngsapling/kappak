@@ -1,5 +1,6 @@
 package com.ysl.kappak.request;
 
+import com.google.common.base.Strings;
 import com.ysl.kappak.util.Contants;
 import lombok.extern.slf4j.Slf4j;
 
@@ -28,7 +29,8 @@ public class HttpServletRequestFilter implements Filter {
         if (servletRequest instanceof HttpServletRequest){
             HttpServletRequest request = (HttpServletRequest) servletRequest;
             String methodType = request.getMethod();
-            if(Contants.POST.toLowerCase().equals(methodType.toLowerCase())){
+            String clientName = request.getHeader("clientName");
+            if(Contants.POST.toLowerCase().equals(methodType.toLowerCase()) && !Strings.isNullOrEmpty(clientName)){
                 requestWrapper = new RequestBodyHttpServletRequestWrapper(request);
             }
         }

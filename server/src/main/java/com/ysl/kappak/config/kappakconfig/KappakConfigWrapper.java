@@ -17,7 +17,7 @@ import java.util.Objects;
  * @author ：youngsapling
  * @date ：Created in 2019/5/25 14:03
  * @modifyTime :
- * @description :
+ * @description : 自动装载自定义组件.
  */
 @Data
 @Component
@@ -32,13 +32,13 @@ public class KappakConfigWrapper implements ApplicationContextAware, Application
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        Map<String, KappakConfigurer> kappakConfigMap = ac.getBeansOfType(KappakConfigurer.class);
         // 默认的执行一遍
         KappakConfigurer kappakConfigurer = new DefaultKappakConfigurer();
         this.retryerRegistry = new RetryerRegistry();
         kappakConfigurer.addReTryEr(this.retryerRegistry);
 
         // 用户自定义的执行一遍
+        Map<String, KappakConfigurer> kappakConfigMap = ac.getBeansOfType(KappakConfigurer.class);
         KappakConfigurer userKappakConfigurer = null;
         if(!CollectionUtils.isEmpty(kappakConfigMap)){
             for (KappakConfigurer mvcConfig : kappakConfigMap.values()){

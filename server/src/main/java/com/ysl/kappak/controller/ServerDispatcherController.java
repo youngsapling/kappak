@@ -26,7 +26,7 @@ import java.util.concurrent.ExecutionException;
  * @author ：youngsapling
  * @date ：Created in 2019/5/18 16:29
  * @modifyTime :
- * @description :
+ * @description : 服务端伪分发器.
  */
 @RestController
 @RequestMapping("/**")
@@ -43,20 +43,23 @@ public class ServerDispatcherController {
     public Object server() {
         // 获取实际调用方法
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
-        RequestBodyHttpServletRequestWrapper wrapper = (RequestBodyHttpServletRequestWrapper) request;
-        String url = wrapper.getRequestURI();
+        RequestBodyHttpServletRequestWrapper requestWrapper = (RequestBodyHttpServletRequestWrapper) request;
+        String url = requestWrapper.getRequestURI();
         Long id = IdWorker.createId();
         String jsonString = null;
         try {
             // 暂时把参数都放置在json中.
-            jsonString = HttpHelper.getRequestBodyString(wrapper);
+            jsonString = HttpHelper.getRequestBodyString(requestWrapper);
         } catch (IOException e) {
             e.printStackTrace();
         }
         Bee highBee = Bee.builder().uri(url).id(id).jsonString(jsonString).build();
         // 在请求头中标识要调用的后端名称.
-        String clientName = wrapper.getHeader("clientName");
+        String clientName = requestWrapper.getHeader("clientName");
         WebSocketServer targetWS = webSocketServer.getTarget(clientName);
+        if (null == targetWS){
+            return "目标后台没有连接到服务器.";
+        }
         try {
             // 发送
             targetWS.sendMessage(JSONObject.toJSONString(highBee));
