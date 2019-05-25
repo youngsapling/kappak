@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * @author ：youngsapling
@@ -36,12 +37,16 @@ public class KappakConfigWrapper implements ApplicationContextAware, Application
         KappakConfigurer kappakConfigurer = new DefaultKappakConfigurer();
         this.retryerRegistry = new RetryerRegistry();
         kappakConfigurer.addReTryEr(this.retryerRegistry);
+
         // 用户自定义的执行一遍
+        KappakConfigurer userKappakConfigurer = null;
         if(!CollectionUtils.isEmpty(kappakConfigMap)){
             for (KappakConfigurer mvcConfig : kappakConfigMap.values()){
-                kappakConfigurer = mvcConfig;
+                userKappakConfigurer = mvcConfig;
             }
         }
-        kappakConfigurer.addReTryEr(this.retryerRegistry);
+        if(Objects.nonNull(userKappakConfigurer)){
+            userKappakConfigurer.addReTryEr(this.retryerRegistry);
+        }
     }
 }

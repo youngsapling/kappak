@@ -25,9 +25,9 @@ public class DefaultKappakConfigurer implements KappakConfigurer {
                 //返回false也需要重试
                 .retryIfResult(Predicates.equalTo(false))
                 //重调策略
-                .withWaitStrategy(WaitStrategies.fixedWait(1, TimeUnit.SECONDS))
+                .withWaitStrategy(WaitStrategies.fixedWait(500, TimeUnit.MILLISECONDS))
                 //尝试次数
-                .withStopStrategy(StopStrategies.stopAfterAttempt(20))
+                .withStopStrategy(StopStrategies.stopAfterAttempt(40))
                 .build();
         retryerRegistry.setRetryer(retryer);
     }

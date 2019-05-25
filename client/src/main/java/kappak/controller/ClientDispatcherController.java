@@ -1,22 +1,17 @@
 package kappak.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import kappak.config.kappakconfig.KappakConfigWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-import org.springframework.core.MethodParameter;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.DispatcherServlet;
-import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+import java.util.List;
 
 /**
  * @author ：youngsapling
@@ -45,9 +40,8 @@ public class ClientDispatcherController {
         Class<?> beanType = hm.getBeanType();
         Object beanController = applicationContext.getBean(beanType);
         // 调用方法参数解析器
-        Object args = kappakConfigWrapper.getParamResolverRegistry().getParamResolver().parseParam(hm, json);
-        Object invoke = hm.getMethod().invoke(beanController, args);
+        List args = kappakConfigWrapper.getParamResolverRegistry().getParamResolver().parseParam(hm, json);
+        Object invoke = hm.getMethod().invoke(beanController, args.toArray());
         return JSON.toJSONString(invoke);
     }
-
 }

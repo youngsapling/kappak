@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * @author ：youngsapling
@@ -48,7 +49,9 @@ public class KappakConfigWrapper implements ApplicationContextAware, Application
                 userKappakConfigurer = mvcConfig;
             }
         }
-        userKappakConfigurer.addUrISelector(uriSelectorRegistry);
-        userKappakConfigurer.addMethodParameterResolver(paramResolverRegistry);
+        if(Objects.nonNull(userKappakConfigurer)){
+            userKappakConfigurer.addUrISelector(uriSelectorRegistry);
+            userKappakConfigurer.addMethodParameterResolver(paramResolverRegistry);
+        }
     }
 }
