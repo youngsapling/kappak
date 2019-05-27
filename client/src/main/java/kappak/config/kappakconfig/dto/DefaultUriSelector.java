@@ -23,7 +23,8 @@ public class DefaultUriSelector implements IUriSelector {
         HandlerMethod hm = null;
         while (iterator.hasNext()) {
             Map.Entry<RequestMappingInfo, HandlerMethod> entry = iterator.next();
-            Set<String> patterns = entry.getKey().getPatternsCondition().getPatterns();
+            RequestMappingInfo requestMappingInfo = entry.getKey();
+            Set<String> patterns = requestMappingInfo.getPatternsCondition().getPatterns();
             if (patterns.contains(uri)) {
                 hm = entry.getValue();
                 break;
