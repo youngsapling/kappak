@@ -16,8 +16,7 @@ import java.util.Map;
  * @author ：youngsapling
  * @date ：Created in 2019/5/20 22:21
  * @modifyTime :
- * @description : copy from https://blog.csdn.net/j903829182/article/details/78342941?tdsourcetag=s_pctim_aiomsg
- *  从请求头中获取client端的name
+ * @description : 解决获取不到httpSession问题
  */
 @Component
 public class GetHttpSessionConfigurator extends ServerEndpointConfig.Configurator {

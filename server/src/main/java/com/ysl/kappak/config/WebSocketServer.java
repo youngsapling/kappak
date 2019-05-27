@@ -20,7 +20,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @author ：youngsapling
  * @date ：Created in 2019/5/20 22:25
  * @modifyTime :
- * @description : copy from https://blog.csdn.net/j903829182/article/details/78342941?tdsourcetag=s_pctim_aiomsg
+ * @description :
  */
 @ServerEndpoint(value = "/kappak", configurator = GetHttpSessionConfigurator.class)
 @Component
