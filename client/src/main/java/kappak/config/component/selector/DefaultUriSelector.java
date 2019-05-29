@@ -1,4 +1,4 @@
-package kappak.config.kappakconfig.dto;
+package kappak.config.component.selector;
 
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo;

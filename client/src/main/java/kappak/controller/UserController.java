@@ -3,9 +3,10 @@ package kappak.controller;
 import kappak.entity.User;
 import kappak.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author ：youngsapling
@@ -26,4 +27,13 @@ public class UserController {
         return byId;
     }
 
+    @PostMapping("/find")
+    public List<User> find(User one){
+        one.setId("new" + one.getId());
+//        two.setId("new" + two.getId());
+        List resultList = new ArrayList(2);
+        resultList.add(one);
+//        resultList.add(two);
+        return resultList;
+    }
 }

@@ -1,4 +1,4 @@
-package kappak.config.kappakconfig.dto;
+package kappak.config.component.selector;
 
 import lombok.Data;
 
@@ -11,4 +11,8 @@ import lombok.Data;
 @Data
 public class UriSelectorRegistry {
     private IUriSelector uriSelector;
+
+    public void addUriSelector(IUriSelector uriSelector){
+        this.uriSelector = uriSelector;
+    }
 }

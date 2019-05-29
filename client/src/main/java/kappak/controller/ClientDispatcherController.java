@@ -1,16 +1,20 @@
 package kappak.controller;
 
 import com.alibaba.fastjson.JSON;
-import kappak.config.kappakconfig.KappakConfigWrapper;
+import kappak.config.kappakconfig.KappakConfigComposite;
+import kappak.config.component.resolver.IParamResolver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.core.MethodParameter;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.method.HandlerMethod;
+import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -29,7 +33,7 @@ public class ClientDispatcherController {
     @Autowired
     RequestMappingHandlerMapping handlerMapping;
     @Autowired
-    KappakConfigWrapper kappakConfigWrapper;
+    KappakConfigComposite kappakConfigWrapper;
 
     public String dispatcher(String uri, String json) throws InvocationTargetException, IllegalAccessException {
         // 调用uri映射器
@@ -37,10 +41,27 @@ public class ClientDispatcherController {
         if (hm == null) {
             return null;
         }
+
+        // 调用方法参数解析器
+        List args = new ArrayList();
+        HandlerMethodArgumentResolver argumentResolver = null;
+        MethodParameter[] methodParameters = hm.getMethodParameters();
+        for (MethodParameter mp : methodParameters){
+            List<IParamResolver> paramResolverList = kappakConfigWrapper.getParamResolverRegistry().getParamResolver();
+            for (IParamResolver resolver : paramResolverList){
+                if(resolver.supportsParameter(mp)){
+                    argumentResolver = resolver;
+                    break;
+                }
+            }
+            Object targetParam = ((IParamResolver) argumentResolver).resolveArgument(mp, json);
+            args.add(targetParam);
+        }
+
+        // 获取controller对象.
         Class<?> beanType = hm.getBeanType();
         Object beanController = applicationContext.getBean(beanType);
-        // 调用方法参数解析器
-        List args = kappakConfigWrapper.getParamResolverRegistry().getParamResolver().parseParam(hm, json);
+        // 反射调用
         Object invoke = hm.getMethod().invoke(beanController, args.toArray());
         return JSON.toJSONString(invoke);
     }

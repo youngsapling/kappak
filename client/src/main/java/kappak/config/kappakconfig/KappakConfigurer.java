@@ -1,7 +1,7 @@
 package kappak.config.kappakconfig;
 
-import kappak.config.kappakconfig.dto.ParamResolverRegistry;
-import kappak.config.kappakconfig.dto.UriSelectorRegistry;
+import kappak.config.component.resolver.ParamResolverRegistry;
+import kappak.config.component.selector.UriSelectorRegistry;
 
 /**
  * @author ：youngsapling
@@ -18,6 +18,10 @@ public interface KappakConfigurer {
 
     }
 
+    /**
+     * 参数解析器
+     * @param paramResolverRegistry
+     */
     default void addMethodParameterResolver(ParamResolverRegistry paramResolverRegistry){
 
     }

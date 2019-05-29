@@ -1,10 +1,13 @@
 package kappak.config.kappakconfig;
 
 
-import kappak.config.kappakconfig.dto.DefaultParamResolver;
-import kappak.config.kappakconfig.dto.DefaultUriSelector;
-import kappak.config.kappakconfig.dto.ParamResolverRegistry;
-import kappak.config.kappakconfig.dto.UriSelectorRegistry;
+import kappak.config.component.resolver.DefaultParamResolver;
+import kappak.config.component.resolver.SimpleParamResolver;
+import kappak.config.component.selector.DefaultUriSelector;
+import kappak.config.component.resolver.ParamResolverRegistry;
+import kappak.config.component.selector.UriSelectorRegistry;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  * @author ：youngsapling
@@ -12,14 +15,21 @@ import kappak.config.kappakconfig.dto.UriSelectorRegistry;
  * @modifyTime :
  * @description : 默认的配置器
  */
+@Component
 public class DefaultKappakConfigurer implements KappakConfigurer {
+    @Autowired
+    DefaultParamResolver defaultParamResolver;
+    @Autowired
+    SimpleParamResolver simpleParamResolver;
 
     @Override
     public void addUrISelector(UriSelectorRegistry uriSelectorRegistry) {
-        uriSelectorRegistry.setUriSelector(new DefaultUriSelector());
+        uriSelectorRegistry.addUriSelector(new DefaultUriSelector());
     }
+
     @Override
     public void addMethodParameterResolver(ParamResolverRegistry paramResolverRegistry){
-        paramResolverRegistry.setParamResolver(new DefaultParamResolver());
+        paramResolverRegistry.addParamResolver(defaultParamResolver);
+        paramResolverRegistry.addParamResolver(simpleParamResolver);
     }
 }
