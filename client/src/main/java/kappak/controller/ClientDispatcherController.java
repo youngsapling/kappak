@@ -1,8 +1,8 @@
 package kappak.controller;
 
 import com.alibaba.fastjson.JSON;
-import kappak.config.kappakconfig.KappakConfigComposite;
 import kappak.config.component.resolver.IParamResolver;
+import kappak.config.kappakconfig.KappakConfigComposite;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.MethodParameter;
@@ -33,21 +33,20 @@ public class ClientDispatcherController {
     @Autowired
     RequestMappingHandlerMapping handlerMapping;
     @Autowired
-    KappakConfigComposite kappakConfigWrapper;
+    KappakConfigComposite kappakConfigComposite;
 
-    public String dispatcher(String uri, String json) throws InvocationTargetException, IllegalAccessException {
+    public String dispatcher(String uri, String json) {
         // 调用uri映射器
-        HandlerMethod hm = kappakConfigWrapper.getUriSelectorRegistry().getUriSelector().select(uri, handlerMapping);
+        HandlerMethod hm = kappakConfigComposite.getUriSelectorRegistry().getUriSelector().select(uri, handlerMapping);
         if (hm == null) {
             return null;
         }
-
         // 调用方法参数解析器
         List args = new ArrayList();
         HandlerMethodArgumentResolver argumentResolver = null;
         MethodParameter[] methodParameters = hm.getMethodParameters();
         for (MethodParameter mp : methodParameters){
-            List<IParamResolver> paramResolverList = kappakConfigWrapper.getParamResolverRegistry().getParamResolver();
+            List<IParamResolver> paramResolverList = kappakConfigComposite.getParamResolverRegistry().getParamResolver();
             for (IParamResolver resolver : paramResolverList){
                 if(resolver.supportsParameter(mp)){
                     argumentResolver = resolver;
@@ -62,7 +61,12 @@ public class ClientDispatcherController {
         Class<?> beanType = hm.getBeanType();
         Object beanController = applicationContext.getBean(beanType);
         // 反射调用
-        Object invoke = hm.getMethod().invoke(beanController, args.toArray());
+        Object invoke = null;
+        try {
+            invoke = hm.getMethod().invoke(beanController, args.toArray());
+        } catch (IllegalAccessException | InvocationTargetException e) {
+            e.printStackTrace();
+        }
         return JSON.toJSONString(invoke);
     }
 }

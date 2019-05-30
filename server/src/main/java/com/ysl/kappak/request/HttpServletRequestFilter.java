@@ -30,6 +30,9 @@ public class HttpServletRequestFilter implements Filter {
             HttpServletRequest request = (HttpServletRequest) servletRequest;
             String methodType = request.getMethod();
             String clientName = request.getHeader("clientName");
+            if(Strings.isNullOrEmpty(clientName)){
+                throw new RuntimeException("clientName can't null");
+            }
             if(Contants.POST.toLowerCase().equals(methodType.toLowerCase()) && !Strings.isNullOrEmpty(clientName)){
                 requestWrapper = new RequestBodyHttpServletRequestWrapper(request);
             }

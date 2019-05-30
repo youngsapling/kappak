@@ -13,12 +13,14 @@ import com.ysl.kappak.util.IdWorker;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 
@@ -32,6 +34,8 @@ import java.util.concurrent.ExecutionException;
 @RequestMapping("/**")
 @Slf4j
 public class ServerDispatcherController {
+    private static final String APPLICATION_WWW = "application/x-www-form-urlencoded";
+    private static final String APPLICATION_JSON = "application/json";
     @Autowired
     WebSocketServer webSocketServer;
     @Autowired
@@ -46,18 +50,34 @@ public class ServerDispatcherController {
         RequestBodyHttpServletRequestWrapper requestWrapper = (RequestBodyHttpServletRequestWrapper) request;
         String url = requestWrapper.getRequestURI();
         Long id = IdWorker.createId();
-        String jsonString = null;
-        try {
-            // 暂时把参数都放置在json中.
-            jsonString = HttpHelper.getRequestBodyString(requestWrapper);
-        } catch (IOException e) {
-            e.printStackTrace();
+        // 构建请求的参数
+        String jsonParam = null;
+        String requestMethod = requestWrapper.getMethod();
+        if (RequestMethod.POST.name().equals(requestMethod)) {
+            // get requestBody
+            if(APPLICATION_WWW.equals(requestWrapper.getContentType())){
+                // 参数格式
+                Map<String, String[]> parameterMap = request.getParameterMap();
+                jsonParam = JSONObject.toJSONString(parameterMap);
+            } else if (APPLICATION_JSON.equals(requestWrapper.getContentType())){
+                // json格式
+                try {
+                    jsonParam = HttpHelper.getRequestBodyString(requestWrapper);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }else {
+                return "RequestHeader [Content-Type] only apply [POST].";
+            }
+        } else {
+            return "RequestMethod only apply [POST].";
         }
-        Bee highBee = Bee.builder().uri(url).id(id).jsonString(jsonString).build();
+
+        Bee highBee = Bee.builder().uri(url).id(id).jsonString(jsonParam).build();
         // 在请求头中标识要调用的后端名称.
         String clientName = requestWrapper.getHeader("clientName");
         WebSocketServer targetWS = webSocketServer.getTarget(clientName);
-        if (null == targetWS){
+        if (null == targetWS) {
             return "目标后台没有连接到服务器.";
         }
         try {
@@ -70,7 +90,7 @@ public class ServerDispatcherController {
 
         String lowBeeString = null;
         Callable<Boolean> getResult = () -> !Strings.isNullOrEmpty(messageServer.get(id));
-        Retryer<Boolean> retryer =kappakConfigWrapper.getRetryerRegistry().getRetryer();
+        Retryer<Boolean> retryer = kappakConfigWrapper.getRetryerRegistry().getRetryer();
         try {
             retryer.call(getResult);
         } catch (ExecutionException e) {
@@ -80,7 +100,7 @@ public class ServerDispatcherController {
         }
 
         lowBeeString = messageServer.getAndRemove(id);
-        if(null == lowBeeString) {
+        if (null == lowBeeString) {
             log.error("已等待20秒, 没有获取到结果.");
             lowBeeString = "已等待20秒, 没有获取到结果.";
         }

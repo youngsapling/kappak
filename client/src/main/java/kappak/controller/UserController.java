@@ -4,9 +4,10 @@ import kappak.entity.User;
 import kappak.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author ：youngsapling
@@ -28,12 +29,12 @@ public class UserController {
     }
 
     @PostMapping("/find")
-    public List<User> find(User one){
-        one.setId("new" + one.getId());
-//        two.setId("new" + two.getId());
-        List resultList = new ArrayList(2);
-        resultList.add(one);
-//        resultList.add(two);
-        return resultList;
+    public User find(@RequestParam String id, @RequestParam String name, @RequestParam Integer age){
+        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        User user = new User();
+        user.setId(id);
+        user.setName(name);
+        user.setAge(age);
+        return user;
     }
 }

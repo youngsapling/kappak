@@ -1,6 +1,5 @@
 package kappak.config.component.resolver;
 
-import kappak.config.component.resolver.IParamResolver;
 import lombok.Data;
 
 import java.util.ArrayList;

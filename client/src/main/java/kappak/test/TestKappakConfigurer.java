@@ -1,7 +1,7 @@
 package kappak.test;
 
-import kappak.config.kappakconfig.KappakConfigurer;
 import kappak.config.component.resolver.ParamResolverRegistry;
+import kappak.config.kappakconfig.KappakConfigurer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

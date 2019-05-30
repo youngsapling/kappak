@@ -2,9 +2,9 @@ package kappak.config.kappakconfig;
 
 
 import kappak.config.component.resolver.DefaultParamResolver;
+import kappak.config.component.resolver.ParamResolverRegistry;
 import kappak.config.component.resolver.SimpleParamResolver;
 import kappak.config.component.selector.DefaultUriSelector;
-import kappak.config.component.resolver.ParamResolverRegistry;
 import kappak.config.component.selector.UriSelectorRegistry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

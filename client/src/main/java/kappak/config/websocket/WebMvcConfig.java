@@ -1,4 +1,4 @@
-package kappak.config;
+package kappak.config.websocket;
 
 import kappak.config.component.YoungArgumentResolver;
 import org.springframework.beans.factory.annotation.Autowired;

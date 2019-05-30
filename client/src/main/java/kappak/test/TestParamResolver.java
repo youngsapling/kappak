@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 public class TestParamResolver implements IParamResolver{
     @Override
     public boolean supportsParameter(MethodParameter parameter) {
-        return true;
+        return false;
     }
 
     @Override
