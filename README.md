@@ -26,6 +26,12 @@
 4. 不支持调用添加了拦截器的方法.
 
 ![image](https://github.com/youngsapling/kappak/blob/master/images/20190525162003.png)
-
-
-                                                              -- 我变强了, 也变秃了.
+                                                             
+                                                             
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                            -- 我变强了, 也变秃了.
