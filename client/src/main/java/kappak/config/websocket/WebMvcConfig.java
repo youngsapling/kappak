@@ -12,7 +12,7 @@ import java.util.List;
  * @author: youngsapling
  * @date: 2019-05-29
  * @modifyTime:
- * @description: client端配置类
+ * @description: client端配置类, 对本项目无用.
  */
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {

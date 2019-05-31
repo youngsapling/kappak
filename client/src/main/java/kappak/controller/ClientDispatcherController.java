@@ -66,6 +66,7 @@ public class ClientDispatcherController {
             invoke = hm.getMethod().invoke(beanController, args.toArray());
         } catch (IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
+            invoke = e.getMessage();
         }
         return JSON.toJSONString(invoke);
     }

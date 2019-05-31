@@ -4,10 +4,6 @@ import kappak.entity.User;
 import kappak.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
-
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author ：youngsapling
@@ -30,7 +26,6 @@ public class UserController {
 
     @PostMapping("/find")
     public User find(@RequestParam String id, @RequestParam String name, @RequestParam Integer age){
-        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         User user = new User();
         user.setId(id);
         user.setName(name);

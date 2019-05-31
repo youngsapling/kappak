@@ -1,8 +1,12 @@
 package kappak.config.kappakconfig;
 
+import com.google.common.eventbus.EventBus;
 import kappak.config.component.resolver.IParamResolver;
 import kappak.config.component.resolver.ParamResolverRegistry;
 import kappak.config.component.selector.UriSelectorRegistry;
+import kappak.config.eventbus.ConnectionCloseListener;
+import kappak.config.websocket.KappakSocketClient;
+import kappak.config.websocket.KappakSocketClientBuilder;
 import lombok.Data;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +14,7 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.context.annotation.Bean;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
@@ -33,6 +38,10 @@ public class KappakConfigComposite implements ApplicationContextAware, Applicati
     private ParamResolverRegistry paramResolverRegistry;
     @Autowired
     KappakConfigurer defaultKappakConfigurer;
+    @Autowired
+    ConnectionCloseListener connectionCloseListener;
+    @Autowired
+    KappakSocketClientBuilder clientBuilder;
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
@@ -75,5 +84,17 @@ public class KappakConfigComposite implements ApplicationContextAware, Applicati
             return a1.value() - a2.value();
         }).collect(Collectors.toList());
         paramResolverRegistry.setParamResolver(collect);
+        connectionServer();
+    }
+
+    private void connectionServer() {
+        clientBuilder.build();
+    }
+
+    @Bean
+    public EventBus getEventBus(){
+        EventBus eventBus = new EventBus();
+        eventBus.register(connectionCloseListener);
+        return eventBus;
     }
 }

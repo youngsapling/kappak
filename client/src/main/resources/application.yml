@@ -3,6 +3,8 @@ server:
 
 
 client:
+  # 目标server端的地址.应该是个公网地址.
   path: ws://127.0.0.1:9090/kappak
+  # 自己的标识
   clientName: yangle
 

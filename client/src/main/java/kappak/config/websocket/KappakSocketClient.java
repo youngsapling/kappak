@@ -1,6 +1,8 @@
 package kappak.config.websocket;
 
 import com.alibaba.fastjson.JSON;
+import com.google.common.eventbus.EventBus;
+import kappak.config.eventbus.ConnectionCloseEvent;
 import kappak.controller.ClientDispatcherController;
 import kappak.entity.Bee;
 import lombok.Data;
@@ -21,14 +23,20 @@ import java.util.Map;
 @Data
 @Slf4j
 public class KappakSocketClient extends WebSocketClient {
+    /**
+     * 是否进行重连
+     */
+    boolean reTry;
     String clientName;
+    EventBus eventBus;
     ClientDispatcherController clientDispatcherController;
 
     public KappakSocketClient(URI serverUri, Draft protocolDraft, Map<String, String> httpHeaders, int connectTimeout,
-                              ClientDispatcherController clientDispatcherController, String clientName) {
+                              ClientDispatcherController clientDispatcherController, String clientName, EventBus eventBus) {
         super(serverUri, protocolDraft, httpHeaders, connectTimeout);
         this.clientDispatcherController = clientDispatcherController;
         this.clientName = clientName;
+        this.eventBus = eventBus;
     }
 
     @Override
@@ -60,7 +68,8 @@ public class KappakSocketClient extends WebSocketClient {
 
     @Override
     public void onClose(int code, String reason, boolean remote) {
-        log.info("[client] 退出连接, [], []", code, reason);
+        eventBus.post(new ConnectionCloseEvent(reTry));
+        log.info("[oldClient] 退出连接, [{}], [{}], [{}].", code, reason, reTry ? "已申请重新连接" : "没有重连");
     }
 
     @Override

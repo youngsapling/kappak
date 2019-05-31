@@ -1,5 +1,6 @@
 package kappak.config.component.resolver;
 
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.base.Strings;
 import lombok.Data;
@@ -44,7 +45,9 @@ public class SimpleParamResolver implements IParamResolver {
             // 注解指定了变量名
             parameterName = parameter.getParameterAnnotation(RequestParam.class).name();
         }
-        Object targetValue = map.get(parameterName);
+        JSONArray jsonArrayValue = (JSONArray)map.get(parameterName);
+        Class<?> parameterType = parameter.getParameterType();
+        Object targetValue = jsonArrayValue.getObject(0, parameterType);
         return targetValue;
     }
 }
