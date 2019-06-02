@@ -1,7 +1,7 @@
 package kappak.config.kappakconfig;
 
-import kappak.config.component.resolver.ParamResolverRegistry;
-import kappak.config.component.selector.UriSelectorRegistry;
+import kappak.config.kappakconfig.resolver.ParamResolverRegistry;
+import kappak.config.kappakconfig.selector.UriSelectorRegistry;
 
 /**
  * @author ：youngsapling

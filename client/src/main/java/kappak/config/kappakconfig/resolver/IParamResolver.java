@@ -1,4 +1,4 @@
-package kappak.config.component.resolver;
+package kappak.config.kappakconfig.resolver;
 
 import org.springframework.core.MethodParameter;
 import org.springframework.web.bind.support.WebDataBinderFactory;

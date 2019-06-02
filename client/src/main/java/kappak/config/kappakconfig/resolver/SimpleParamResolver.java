@@ -1,4 +1,4 @@
-package kappak.config.component.resolver;
+package kappak.config.kappakconfig.resolver;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -27,7 +27,7 @@ public class SimpleParamResolver implements IParamResolver {
     @Override
     public boolean supportsParameter(MethodParameter parameter) {
         RequestParam parameterAnnotation = parameter.getParameterAnnotation(RequestParam.class);
-        return null != parameterAnnotation.getClass();
+        return null != parameterAnnotation;
     }
 
     @Override

@@ -37,8 +37,6 @@ public class KappakSocketClientBuilder {
     @Autowired
     ClientDispatcherController clientDispatcherController;
     @Autowired
-    ConsoleController consoleController;
-    @Autowired
     EventBus eventBus;
 
     public KappakSocketClient build(){

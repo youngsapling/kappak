@@ -1,4 +1,4 @@
-package kappak.config.component.resolver;
+package kappak.config.kappakconfig.resolver;
 
 import com.alibaba.fastjson.JSONObject;
 import lombok.Data;

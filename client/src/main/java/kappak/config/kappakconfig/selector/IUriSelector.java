@@ -1,4 +1,4 @@
-package kappak.config.component.selector;
+package kappak.config.kappakconfig.selector;
 
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;

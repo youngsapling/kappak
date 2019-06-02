@@ -1,7 +1,7 @@
 package kappak.test;
 
 import com.alibaba.fastjson.JSONObject;
-import kappak.config.component.resolver.IParamResolver;
+import kappak.config.kappakconfig.resolver.IParamResolver;
 import org.springframework.core.MethodParameter;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;

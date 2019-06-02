@@ -1,4 +1,4 @@
-package kappak.config.component.selector;
+package kappak.config.kappakconfig.selector;
 
 import lombok.Data;
 

@@ -1,11 +1,17 @@
-package kappak.config.component.selector;
+package kappak.config.kappakconfig.selector;
 
+import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.annotation.Order;
+import org.springframework.stereotype.Component;
+import org.springframework.util.PathMatcher;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -14,7 +20,12 @@ import java.util.Set;
  * @modifyTime :
  * @description :
  */
+@Data
+@Order
+@Component
 public class DefaultUriSelector implements IUriSelector {
+    @Autowired
+    private PathMatcher pathMatcher;
 
     @Override
     public HandlerMethod select(String uri, RequestMappingHandlerMapping handlerMapping){
@@ -25,8 +36,13 @@ public class DefaultUriSelector implements IUriSelector {
             Map.Entry<RequestMappingInfo, HandlerMethod> entry = iterator.next();
             RequestMappingInfo requestMappingInfo = entry.getKey();
             Set<String> patterns = requestMappingInfo.getPatternsCondition().getPatterns();
-            if (patterns.contains(uri)) {
-                hm = entry.getValue();
+            for (String pattern : patterns) {
+                if (pathMatcher.match(pattern, uri)) {
+                    hm = entry.getValue();
+                    break;
+                }
+            }
+            if(Objects.nonNull(hm)){
                 break;
             }
         }

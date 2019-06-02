@@ -1,11 +1,10 @@
 package kappak.config.kappakconfig;
 
 import com.google.common.eventbus.EventBus;
-import kappak.config.component.resolver.IParamResolver;
-import kappak.config.component.resolver.ParamResolverRegistry;
-import kappak.config.component.selector.UriSelectorRegistry;
+import kappak.config.kappakconfig.resolver.IParamResolver;
+import kappak.config.kappakconfig.resolver.ParamResolverRegistry;
+import kappak.config.kappakconfig.selector.UriSelectorRegistry;
 import kappak.config.eventbus.ConnectionCloseListener;
-import kappak.config.websocket.KappakSocketClient;
 import kappak.config.websocket.KappakSocketClientBuilder;
 import lombok.Data;
 import org.springframework.beans.BeansException;

@@ -1,13 +1,14 @@
 package kappak.config.kappakconfig;
 
 
-import kappak.config.component.resolver.DefaultParamResolver;
-import kappak.config.component.resolver.ParamResolverRegistry;
-import kappak.config.component.resolver.SimpleParamResolver;
-import kappak.config.component.selector.DefaultUriSelector;
-import kappak.config.component.selector.UriSelectorRegistry;
+import kappak.config.kappakconfig.resolver.DefaultParamResolver;
+import kappak.config.kappakconfig.resolver.ParamResolverRegistry;
+import kappak.config.kappakconfig.resolver.SimpleParamResolver;
+import kappak.config.kappakconfig.selector.DefaultUriSelector;
+import kappak.config.kappakconfig.selector.UriSelectorRegistry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.util.PathMatcher;
 
 /**
  * @author ：youngsapling
@@ -21,10 +22,12 @@ public class DefaultKappakConfigurer implements KappakConfigurer {
     DefaultParamResolver defaultParamResolver;
     @Autowired
     SimpleParamResolver simpleParamResolver;
+    @Autowired
+    DefaultUriSelector defaultUriSelector;
 
     @Override
     public void addUrISelector(UriSelectorRegistry uriSelectorRegistry) {
-        uriSelectorRegistry.addUriSelector(new DefaultUriSelector());
+        uriSelectorRegistry.addUriSelector(defaultUriSelector);
     }
 
     @Override
