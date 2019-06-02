@@ -23,7 +23,7 @@
        clientName: youngsapling
        
 3. 不支持url路径中包含 通配符 和 ${id} 的方式.
-4. 不支持调用添加了拦截器的方法.
+4. 不支持Filter/Interceptor/Aspect等方式.
 
 ![image](https://github.com/youngsapling/kappak/blob/master/images/20190525162003.png)
                                                              
