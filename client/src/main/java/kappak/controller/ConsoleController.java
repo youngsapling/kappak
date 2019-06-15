@@ -1,6 +1,6 @@
 package kappak.controller;
 
-import kappak.config.websocket.KappakSocketClientBuilder;
+import kappak.websocket.KappakSocketClientBuilder;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

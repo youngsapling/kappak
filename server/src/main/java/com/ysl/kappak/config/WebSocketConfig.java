@@ -19,6 +19,10 @@ public class WebSocketConfig {
         return new ServerEndpointExporter();
     }
 
+    /**
+     * webSocket是通过反射创建的, 可以使用这种方式依赖注入组件.
+     * @param messageServer
+     */
     @Autowired
     public void setMessageServer(MessageServer messageServer){
         WebSocketServer.messageServer = messageServer;

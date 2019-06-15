@@ -8,7 +8,6 @@ import kappak.config.kappakconfig.selector.DefaultUriSelector;
 import kappak.config.kappakconfig.selector.UriSelectorRegistry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.util.PathMatcher;
 
 /**
  * @author ：youngsapling

@@ -32,6 +32,9 @@ public class WebSocketServer {
     private static AtomicInteger onlineCount = new AtomicInteger(0);
     //concurrent包的线程安全Map，用来存放每个客户端对应的MyWebSocket对象。
     private static Map<String, WebSocketServer> webSocketMap = new ConcurrentHashMap<>();
+    /**
+     * 无法依赖注入, 通过WebSocketConfig解决.
+     */
     protected static MessageServer messageServer;
     //与某个客户端的连接会话，需要通过它来给客户端发送数据
     private Session session;

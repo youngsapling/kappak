@@ -25,7 +25,7 @@ public class DefaultKappakConfigurer implements KappakConfigurer {
                 //抛出runtime异常、checked异常时都会重试，但是抛出error不会重试。
                 .retryIfException()
                 //重调策略
-                .withWaitStrategy(WaitStrategies.fixedWait(500, TimeUnit.MILLISECONDS))
+                .withWaitStrategy(WaitStrategies.fixedWait(1000, TimeUnit.MILLISECONDS))
                 //尝试次数
                 .withStopStrategy(StopStrategies.stopAfterAttempt(40))
                 .build();

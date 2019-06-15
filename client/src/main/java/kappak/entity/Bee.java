@@ -4,6 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.http.HttpMethod;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author ：youngsapling
@@ -24,6 +28,14 @@ public class Bee {
      * 消息的唯一标识
      */
     Long id;
+    /**
+     * 请求方式
+     */
+    String httpMethod;
+    /**
+     * 请求头
+     */
+    List<Map<String, String>> requestHeaders;
     /**
      * 数据
      */

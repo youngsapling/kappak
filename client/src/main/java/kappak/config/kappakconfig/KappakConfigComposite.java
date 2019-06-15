@@ -5,7 +5,7 @@ import kappak.config.kappakconfig.resolver.IParamResolver;
 import kappak.config.kappakconfig.resolver.ParamResolverRegistry;
 import kappak.config.kappakconfig.selector.UriSelectorRegistry;
 import kappak.config.eventbus.ConnectionCloseListener;
-import kappak.config.websocket.KappakSocketClientBuilder;
+import kappak.websocket.KappakSocketClientBuilder;
 import lombok.Data;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +17,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 import java.util.Map;
@@ -27,7 +28,7 @@ import java.util.stream.Collectors;
  * @author ：youngsapling
  * @date ：Created in 2019/5/25 14:03
  * @modifyTime :
- * @description : 自动装载自定义组件.
+ * @description : 自定义初始化类, 自动创建clientWebSocket连接, 准备数据.
  */
 @Data
 @Component
@@ -86,6 +87,9 @@ public class KappakConfigComposite implements ApplicationContextAware, Applicati
         connectionServer();
     }
 
+    /**
+     * 服务启动的时候自己初始化一个ClientWebSocket去连接服务器.
+     */
     private void connectionServer() {
         clientBuilder.build();
     }
@@ -95,5 +99,10 @@ public class KappakConfigComposite implements ApplicationContextAware, Applicati
         EventBus eventBus = new EventBus();
         eventBus.register(connectionCloseListener);
         return eventBus;
+    }
+
+    @Bean
+    public RestTemplate getRestTemplate(){
+        return new RestTemplate();
     }
 }

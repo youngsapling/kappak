@@ -1,8 +1,7 @@
-package kappak.config.websocket;
+package kappak.websocket;
 
 import com.google.common.eventbus.EventBus;
 import kappak.controller.ClientDispatcherController;
-import kappak.controller.ConsoleController;
 import lombok.Data;
 import org.java_websocket.drafts.Draft_6455;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +33,10 @@ public class KappakSocketClientBuilder {
     String clientName;
     @Value("${client.path}")
     String path;
+    @Value("${client.methodType}")
+    Integer methodType;
+    @Value(("${client.serverPort}"))
+    String serverPort;
     @Autowired
     ClientDispatcherController clientDispatcherController;
     @Autowired
@@ -48,7 +51,8 @@ public class KappakSocketClientBuilder {
         httpHeaders.put("clientName", clientName);
         try {
              webSocketClient = new KappakSocketClient(new URI(uri), new Draft_6455(), httpHeaders,
-                    100, clientDispatcherController, clientName, eventBus);
+                    100, clientDispatcherController, clientName, eventBus, methodType,
+                     serverPort);
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }

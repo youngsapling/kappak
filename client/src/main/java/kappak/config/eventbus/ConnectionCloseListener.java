@@ -3,7 +3,7 @@ package kappak.config.eventbus;
 import com.github.rholder.retry.*;
 import com.google.common.base.Predicates;
 import com.google.common.eventbus.Subscribe;
-import kappak.config.websocket.KappakSocketClientBuilder;
+import kappak.websocket.KappakSocketClientBuilder;
 import kappak.controller.ConsoleController;
 import lombok.extern.slf4j.Slf4j;
 import org.java_websocket.client.WebSocketClient;

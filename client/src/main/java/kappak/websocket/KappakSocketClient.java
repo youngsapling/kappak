@@ -1,4 +1,4 @@
-package kappak.config.websocket;
+package kappak.websocket;
 
 import com.alibaba.fastjson.JSON;
 import com.google.common.eventbus.EventBus;
@@ -27,16 +27,35 @@ public class KappakSocketClient extends WebSocketClient {
      * 是否进行重连
      */
     boolean reTry;
+    /**
+     * 标识自己
+     */
     String clientName;
+    /**
+     * 事件总线
+     */
     EventBus eventBus;
+    /**
+     * 前端控制器
+     */
     ClientDispatcherController clientDispatcherController;
+    /**
+     * 通过本地http请求调用本地真实请求, 那么client端需要独立运行于本地. type = 1
+     * 通过方法反射调用, 那么client端和真实服务在一起. type = 2
+     */
+    Integer methodType;
+
+    String serverPort;
 
     public KappakSocketClient(URI serverUri, Draft protocolDraft, Map<String, String> httpHeaders, int connectTimeout,
-                              ClientDispatcherController clientDispatcherController, String clientName, EventBus eventBus) {
+                              ClientDispatcherController clientDispatcherController, String clientName, EventBus eventBus,
+                              Integer methodType, String serverPort) {
         super(serverUri, protocolDraft, httpHeaders, connectTimeout);
         this.clientDispatcherController = clientDispatcherController;
         this.clientName = clientName;
         this.eventBus = eventBus;
+        this.methodType = methodType;
+        this.serverPort = serverPort;
     }
 
     @Override
@@ -52,7 +71,11 @@ public class KappakSocketClient extends WebSocketClient {
             Long id = highBee.getId();
             String toSource = null;
             try {
-                toSource = clientDispatcherController.dispatcher(highBee.getUri(), highBee.getJsonString());
+                if(Integer.valueOf(1).equals(this.methodType)){
+                    toSource = clientDispatcherController.sendRest(highBee, serverPort);
+                }else {
+                    toSource = clientDispatcherController.dispatcher(highBee.getUri(), highBee.getJsonString());
+                }
             } catch (Exception e) {
                 e.printStackTrace();
                 toSource = e.getMessage();

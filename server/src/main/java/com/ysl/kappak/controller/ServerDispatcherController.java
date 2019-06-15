@@ -12,6 +12,8 @@ import com.ysl.kappak.util.HttpHelper;
 import com.ysl.kappak.util.IdWorker;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,7 +22,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 
@@ -34,8 +36,6 @@ import java.util.concurrent.ExecutionException;
 @RequestMapping("/**")
 @Slf4j
 public class ServerDispatcherController {
-    private static final String APPLICATION_WWW = "application/x-www-form-urlencoded";
-    private static final String APPLICATION_JSON = "application/json";
     @Autowired
     WebSocketServer webSocketServer;
     @Autowired
@@ -53,27 +53,36 @@ public class ServerDispatcherController {
         // 构建请求的参数
         String jsonParam = null;
         String requestMethod = requestWrapper.getMethod();
-        if (RequestMethod.POST.name().equals(requestMethod)) {
-            // get requestBody
-            if(APPLICATION_WWW.equals(requestWrapper.getContentType())){
-                // 参数格式
-                Map<String, String[]> parameterMap = request.getParameterMap();
-                jsonParam = JSONObject.toJSONString(parameterMap);
-            } else if (APPLICATION_JSON.equals(requestWrapper.getContentType())){
-                // json格式
-                try {
-                    jsonParam = HttpHelper.getRequestBodyString(requestWrapper);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }else {
-                return "RequestHeader [Content-Type] only apply [POST].";
+        // get requestBody
+        if (MediaType.APPLICATION_FORM_URLENCODED_VALUE.equals(requestWrapper.getContentType())) {
+            // 参数格式
+            Map<String, String[]> parameterMap = request.getParameterMap();
+            jsonParam = JSONObject.toJSONString(parameterMap);
+        } else if (MediaType.APPLICATION_JSON_VALUE.equals(requestWrapper.getContentType())) {
+            // json格式
+            try {
+                jsonParam = HttpHelper.getRequestBodyString(requestWrapper);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         } else {
-            return "RequestMethod only apply [POST].";
+            return String.format("RequestHeader [Content-Type] only apply [%s, %s].",
+                    MediaType.APPLICATION_FORM_URLENCODED_VALUE, MediaType.APPLICATION_JSON_VALUE);
         }
 
-        Bee highBee = Bee.builder().uri(url).id(id).jsonString(jsonParam).build();
+        Enumeration<String> headerNames = requestWrapper.getHeaderNames();
+        List<Map<String, String>> headerList = new ArrayList<>();
+        while (headerNames.hasMoreElements()) {
+            String headerName = headerNames.nextElement();
+            if(!StringUtils.isEmpty(headerName)){
+                Map<String, String> header = new HashMap<>(1);
+                header.put(headerName, requestWrapper.getHeader(headerName));
+                headerList.add(header);
+            }
+        }
+
+        Bee highBee = Bee.builder().uri(url).id(id).httpMethod(requestMethod).requestHeaders(headerList)
+                .jsonString(jsonParam).build();
         // 在请求头中标识要调用的后端名称.
         String clientName = requestWrapper.getHeader("clientName");
         WebSocketServer targetWS = webSocketServer.getTarget(clientName);
@@ -101,8 +110,8 @@ public class ServerDispatcherController {
 
         lowBeeString = messageServer.getAndRemove(id);
         if (null == lowBeeString) {
-            log.error("已等待20秒, 没有获取到结果.");
-            lowBeeString = "已等待20秒, 没有获取到结果.";
+            log.error("已等待40秒, 没有获取到结果.");
+            lowBeeString = "已等待40秒, 没有获取到结果.";
         }
         return lowBeeString;
     }
