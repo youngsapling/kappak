@@ -8,7 +8,7 @@
 
 ### 运行模式
 1. (推荐)client通过RestTemplate调用本地服务, 在client端的配置文件中设置端口号, methodType = 1, 并且client端需独立运行.
-2. (不推荐)通过url反射调用目标方法, 相当于模拟了SpringMVC, 不够健壮, 但有利于学习SpringMVC.设置methodType = 2 即可, 并且
+2. (不推荐)通过url反射调用目标方法, 相当于模拟了SpringMVC, 不够健壮, 但有利于学习SpringMVC. 设置methodType = 2 即可, 并且
     clinet端需和本地服务在同一个服务中.
 
 ### 几种可自定义的组件
