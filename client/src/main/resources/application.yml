@@ -5,11 +5,11 @@ server:
 client:
   # 目标server端的地址.应该是个公网地址.
   path: ws://47.93.138.94:9090/kappak
-  # 自己的标识
-  clientName: yourName
   # 通过本地http请求调用本地真实请求, 那么client端需要独立运行于本地. type = 1
   # 通过方法反射调用, 那么client端和真实服务在一起. type = 2
   methodType: 1
+  # 自己的标识
+  clientName: yangle
   # 要访问的本地真实服务的端口号
   serverPort: 8191
 

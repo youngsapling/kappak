@@ -95,14 +95,14 @@ public class KappakConfigComposite implements ApplicationContextAware, Applicati
     }
 
     @Bean
-    public EventBus getEventBus(){
+    public EventBus eventBus(){
         EventBus eventBus = new EventBus();
         eventBus.register(connectionCloseListener);
         return eventBus;
     }
 
     @Bean
-    public RestTemplate getRestTemplate(){
+    public RestTemplate restTemplate(){
         return new RestTemplate();
     }
 }
