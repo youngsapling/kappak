@@ -74,7 +74,7 @@ public class KappakSocketClient extends WebSocketClient {
                 if(Integer.valueOf(1).equals(this.methodType)){
                     toSource = clientDispatcherController.sendRest(highBee, serverPort);
                 }else {
-                    toSource = clientDispatcherController.dispatcher(highBee.getUri(), highBee.getJsonString());
+                    toSource = clientDispatcherController.reflect(highBee.getUri(), highBee.getJsonString());
                 }
             } catch (Exception e) {
                 e.printStackTrace();

@@ -19,8 +19,6 @@ public class ConsoleController {
     @Autowired
     KappakSocketClientBuilder builder;
 
-
-
     @RequestMapping(value = "/open")
     public Boolean open(){
         builder.build();

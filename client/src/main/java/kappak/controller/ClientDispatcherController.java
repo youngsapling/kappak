@@ -53,11 +53,11 @@ public class ClientDispatcherController {
      * @param json
      * @return
      */
-    public String dispatcher(String uri, String json) {
+    public String reflect(String uri, String json) {
         // 调用uri映射器
         HandlerMethod hm = kappakConfigComposite.getUriSelectorRegistry().getUriSelector().select(uri, handlerMapping);
         if (hm == null) {
-            return null;
+            return String.format("this uri {%s} can't been map for server");
         }
         // 调用方法参数解析器
         List args = new ArrayList();
@@ -105,5 +105,12 @@ public class ClientDispatcherController {
         HttpEntity<String> request = new HttpEntity<>(highBee.getJsonString(), headers);
         ResponseEntity<String> response = restTemplate.postForEntity(url, request , String.class );
         return response.getBody();
+    }
+
+    /**
+     * 通过构造MockRequest对象， 将request and response传递。
+     */
+    public String dispatcher(String uri, String json) {
+        return "";
     }
 }

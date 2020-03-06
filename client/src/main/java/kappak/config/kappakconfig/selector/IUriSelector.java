@@ -15,6 +15,6 @@ public interface IUriSelector {
      * @return
      */
     default HandlerMethod select(String uri, RequestMappingHandlerMapping handlerMapping){
-        return null;
+        throw new RuntimeException("there need a class implement IUriSelector.");
     }
 }

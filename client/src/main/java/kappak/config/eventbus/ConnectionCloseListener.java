@@ -52,6 +52,12 @@ public class ConnectionCloseListener {
                     .withWaitStrategy(WaitStrategies.fixedWait(1000, TimeUnit.MILLISECONDS))
                     //尝试次数
                     .withStopStrategy(StopStrategies.stopAfterAttempt(10))
+                    .withBlockStrategy(l -> {
+                        long endTime = System.currentTimeMillis() + l;
+                        while (System.currentTimeMillis() < endTime) {
+                            // 自旋spin
+                        }
+                    })
                     .build();
             retryer.call(call);
         } catch (ExecutionException | RetryException e) {

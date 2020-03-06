@@ -32,4 +32,8 @@ public class UserController {
         user.setAge(age);
         return user;
     }
+    @PostMapping("/{number}")
+    public String number(@PathVariable(value = "number") String number){
+        return String.format("restful : [%s]", number);
+    }
 }
