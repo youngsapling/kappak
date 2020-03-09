@@ -1,0 +1,1 @@
+org.springframework.boot.SpringApplicationRunListener=kappak.config.kappakconfig.mock.ServletContextAddListener

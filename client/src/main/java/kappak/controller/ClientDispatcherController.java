@@ -14,6 +14,8 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mock.web.MockHttpServletRequest;
+import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,8 +25,15 @@ import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
+import org.springframework.web.util.UriComponents;
+import org.springframework.web.util.UriComponentsBuilder;
 
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.InvocationTargetException;
+import java.net.URLDecoder;
 import java.util.*;
 
 /**
@@ -111,6 +120,41 @@ public class ClientDispatcherController {
      * 通过构造MockRequest对象， 将request and response传递。
      */
     public String dispatcher(String uri, String json) {
-        return "";
+        ServletContext servletContext = dispatcherServlet.getServletConfig().getServletContext();
+        //HTTP请求、GET/POST
+        MockHttpServletResponse servletResponse = new MockHttpServletResponse();
+        MockHttpServletRequest servletRequest =new MockHttpServletRequest(servletContext);
+        UriComponents uriComponents = UriComponentsBuilder.fromUriString(uri).build();
+        String path = uriComponents.getPath();
+        try {
+            path = URLDecoder.decode(path, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        servletRequest.setRequestURI(path);
+        servletRequest.setServletPath(path);
+        if (uriComponents.getScheme() != null) {
+            servletRequest.setScheme(uriComponents.getScheme());
+        }
+        if (uriComponents.getHost() != null) {
+            servletRequest.setServerName(uriComponents.getHost());
+        }
+        if (uriComponents.getPort() != -1) {
+            servletRequest.setServerPort(uriComponents.getPort());
+        }
+        try {
+            byte[] data = json.getBytes("UTF-8");
+            servletRequest.setContent(data);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        try {
+            dispatcherServlet.service(servletRequest,servletResponse);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return JSON.toJSONString(servletResponse);
     }
 }
