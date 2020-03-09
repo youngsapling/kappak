@@ -7,7 +7,8 @@ client:
   path: ws://localhost:9090/kappak
   # 通过本地http请求调用本地真实请求, 那么client端需要独立运行于本地. type = 1
   # 通过方法反射调用, 那么client端和真实服务在一起. type = 2
-  methodType: 2
+  # 传递请求调用, type = 3
+  methodType: 3
   # 自己的标识
   clientName: yangle
   # 要访问的本地真实服务的端口号

@@ -71,10 +71,16 @@ public class KappakSocketClient extends WebSocketClient {
             Long id = highBee.getId();
             String toSource = null;
             try {
-                if(Integer.valueOf(1).equals(this.methodType)){
-                    toSource = clientDispatcherController.sendRest(highBee, serverPort);
-                }else {
-                    toSource = clientDispatcherController.reflect(highBee.getUri(), highBee.getJsonString());
+                switch (this.methodType) {
+                    case 1 :
+                        toSource = clientDispatcherController.sendRest(highBee, serverPort);
+                        break;
+                    case 2 :
+                        toSource = clientDispatcherController.reflect(highBee.getUri(), highBee.getJsonString());
+                        break;
+                    case 3 :
+                        toSource = clientDispatcherController.dispatcher(highBee);
+                        break;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -84,7 +90,7 @@ public class KappakSocketClient extends WebSocketClient {
             Bee lowBee = Bee.builder().id(id).jsonString(toSource).build();
             log.info("[client] 返回消息={}", JSON.toJSONString(lowBee));
             this.send(JSON.toJSONString(lowBee));
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

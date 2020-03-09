@@ -15,7 +15,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -43,7 +42,7 @@ public class ServerDispatcherController {
     @Autowired
     KappakConfigWrapper kappakConfigWrapper;
 
-    @RequestMapping()
+    @RequestMapping(produces = "application/json;charset=utf-8")
     public Object server() {
         // 获取实际调用方法
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
@@ -74,7 +73,7 @@ public class ServerDispatcherController {
         List<Map<String, String>> headerList = new ArrayList<>();
         while (headerNames.hasMoreElements()) {
             String headerName = headerNames.nextElement();
-            if(!StringUtils.isEmpty(headerName)){
+            if (!StringUtils.isEmpty(headerName)) {
                 Map<String, String> header = new HashMap<>(1);
                 header.put(headerName, requestWrapper.getHeader(headerName));
                 headerList.add(header);
@@ -87,7 +86,7 @@ public class ServerDispatcherController {
         String clientName = requestWrapper.getHeader("clientName");
         WebSocketServer targetWS = webSocketServer.getTarget(clientName);
         if (null == targetWS) {
-            return "目标后台没有连接到服务器.";
+            return String.format("目标后台{%s}没有连接到服务器.", clientName);
         }
         try {
             // 发送
@@ -107,7 +106,6 @@ public class ServerDispatcherController {
         } catch (RetryException e) {
             e.printStackTrace();
         }
-
         lowBeeString = messageServer.getAndRemove(id);
         if (null == lowBeeString) {
             log.error("已等待40秒, 没有获取到结果.");

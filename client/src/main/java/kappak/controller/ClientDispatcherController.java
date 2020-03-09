@@ -1,23 +1,19 @@
 package kappak.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import com.google.common.collect.HashMultimap;
-import com.google.common.collect.Lists;
-import kappak.config.kappakconfig.resolver.IParamResolver;
 import kappak.config.kappakconfig.KappakConfigComposite;
+import kappak.config.kappakconfig.resolver.IParamResolver;
 import kappak.entity.Bee;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -34,7 +30,9 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URLDecoder;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author ：youngsapling
@@ -42,6 +40,7 @@ import java.util.*;
  * @modifyTime :
  * @description : 客户端分发器
  */
+@Slf4j
 @RestController
 @RequestMapping("/clientController")
 public class ClientDispatcherController {
@@ -119,11 +118,20 @@ public class ClientDispatcherController {
     /**
      * 通过构造MockRequest对象， 将request and response传递。
      */
-    public String dispatcher(String uri, String json) {
+    public String dispatcher(Bee highBee) {
+        String uri = highBee.getUri();
+        String json = highBee.getJsonString();
+        String httpMethon = highBee.getHttpMethod();
         ServletContext servletContext = dispatcherServlet.getServletConfig().getServletContext();
         //HTTP请求、GET/POST
         MockHttpServletResponse servletResponse = new MockHttpServletResponse();
         MockHttpServletRequest servletRequest =new MockHttpServletRequest(servletContext);
+        // headers
+        for (Map<String, String> map : highBee.getRequestHeaders()) {
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                servletRequest.addHeader(entry.getKey(), entry.getValue());
+            }
+        }
         UriComponents uriComponents = UriComponentsBuilder.fromUriString(uri).build();
         String path = uriComponents.getPath();
         try {
@@ -133,6 +141,7 @@ public class ClientDispatcherController {
         }
         servletRequest.setRequestURI(path);
         servletRequest.setServletPath(path);
+        servletRequest.setMethod(httpMethon);
         if (uriComponents.getScheme() != null) {
             servletRequest.setScheme(uriComponents.getScheme());
         }
@@ -148,13 +157,17 @@ public class ClientDispatcherController {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
+        String resp = "";
         try {
             dispatcherServlet.service(servletRequest,servletResponse);
+            resp = StringUtils.isEmpty(servletResponse.getContentAsString()) ? "" : servletResponse.getContentAsString();
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return JSON.toJSONString(servletResponse);
+
+        log.info("client result : " + resp);
+        return resp;
     }
 }
