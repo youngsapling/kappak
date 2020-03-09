@@ -83,7 +83,7 @@ public class ServerDispatcherController {
         Bee highBee = Bee.builder().uri(url).id(id).httpMethod(requestMethod).requestHeaders(headerList)
                 .jsonString(jsonParam).build();
         // 在请求头中标识要调用的后端名称.
-        String clientName = requestWrapper.getHeader("clientName");
+        String clientName = requestWrapper.getHeader("ClientName");
         WebSocketServer targetWS = webSocketServer.getTarget(clientName);
         if (null == targetWS) {
             return String.format("目标后台{%s}没有连接到服务器.", clientName);

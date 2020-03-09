@@ -26,10 +26,9 @@
     ````http
        Request-Method: POST
        Content-Type: application/json || application/x-www-form-urlencoded
-       clientName: youngsapling
+       ClientName: youngsapling
        
-3. 不支持url路径中包含 通配符 和 ${id} 的方式.
-4. 不支持Filter/Interceptor/Aspect等方式.
+3. 支持url路径中包含 通配符 和 ${id} 的方式.
 
 ![image](https://github.com/youngsapling/kappak/blob/master/images/20190525162003.png)
                                                              
