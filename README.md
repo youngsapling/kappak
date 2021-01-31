@@ -30,7 +30,7 @@
        
 3. 支持url路径中包含 通配符 和 ${id} 的方式.
 
-![image](https://github.com/youngsapling/kappak/blob/master/images/20190525162003.png)
+![image](https://gitee.com/youngsapling/kappak/raw/master/images/20190525162003.png)
                                                              
                                                              
                                                                                                     
