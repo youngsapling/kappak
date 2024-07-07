@@ -1,9 +1,54 @@
-<mxfile host="app.diagrams.net" modified="2024-07-07T06:43:55.504Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" version="24.6.4" etag="4a9Hq6H_Yr6p3i1nxekZ" type="github">
+<mxfile host="app.diagrams.net" modified="2024-07-07T06:53:12.860Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" etag="99KsEA_MlntU-73G8g3Z" version="24.6.4" type="github">
   <diagram name="第 1 页" id="OAlhQ5RgoAdpzEQPvTgW">
-    <mxGraphModel>
+    <mxGraphModel dx="2074" dy="1106" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="uMQJd07oxPG79hwhNOlY-1" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;WEB:VUE/&lt;/font&gt;&lt;/span&gt;&lt;div style=&quot;font-size: 18px;&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;Element-UI&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCCCC;strokeColor=#7EA6E0;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="170" y="190" width="120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="uMQJd07oxPG79hwhNOlY-2" value="" style="shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;labelPosition=left;verticalLabelPosition=middle;align=right;verticalAlign=middle;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="100" y="180" width="20" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="uMQJd07oxPG79hwhNOlY-3" value="&lt;b&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;客户端&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="225" width="20" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="uMQJd07oxPG79hwhNOlY-4" value="" style="endArrow=none;dashed=1;html=1;rounded=1;strokeWidth=3;fillColor=#dae8fc;strokeColor=#6C8EBF;curved=0;dashPattern=8 8;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="140" y="300" as="sourcePoint" />
+            <mxPoint x="800" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uMQJd07oxPG79hwhNOlY-5" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;APP:Android/&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt;IOS&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCCCC;strokeColor=#7EA6E0;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="640" y="190" width="120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="uMQJd07oxPG79hwhNOlY-6" value="HTTP/WebSocket" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=15;fontColor=#f3aaaa;" vertex="1" parent="1">
+          <mxGeometry x="340" y="240" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="uMQJd07oxPG79hwhNOlY-7" value="Rest/JSON" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=15;fontColor=#f3aaaa;" vertex="1" parent="1">
+          <mxGeometry x="500" y="240" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="uMQJd07oxPG79hwhNOlY-8" value="" style="shape=flexArrow;endArrow=classic;startArrow=classic;html=1;rounded=0;labelBackgroundColor=#CCFFFF;fillColor=#dae8fc;strokeColor=#6c8ebf;" edge="1" parent="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="229.5" y="350" as="sourcePoint" />
+            <mxPoint x="229.5" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uMQJd07oxPG79hwhNOlY-9" value="" style="shape=flexArrow;endArrow=classic;startArrow=classic;html=1;rounded=0;labelBackgroundColor=#CCFFFF;fillColor=#dae8fc;strokeColor=#6c8ebf;" edge="1" parent="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="699.5" y="350" as="sourcePoint" />
+            <mxPoint x="699.5" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uMQJd07oxPG79hwhNOlY-10" value="" style="shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;labelPosition=left;verticalLabelPosition=middle;align=right;verticalAlign=middle;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="100" y="350" width="20" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="uMQJd07oxPG79hwhNOlY-11" value="&lt;span style=&quot;font-size: 17px;&quot;&gt;&lt;b&gt;网关&lt;/b&gt;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="395" width="20" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="uMQJd07oxPG79hwhNOlY-12" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="390" width="120" height="60" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
