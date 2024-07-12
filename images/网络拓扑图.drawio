@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-07-12T09:27:17.025Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" etag="ov9FcdkXOd65fpuPIoCH" version="24.6.4" type="github">
+<mxfile host="app.diagrams.net" modified="2024-07-12T09:38:39.240Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" etag="a-rBEV-b4dlbp0_1oY5J" version="24.6.4" type="github">
   <diagram name="第 1 页" id="rxvdr3NrPpfpOXbg-tKn">
     <mxGraphModel dx="2901" dy="2275" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -139,6 +139,23 @@
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="1340" y="670" as="sourcePoint" />
             <mxPoint x="1390" y="620" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="40FOMWwHZyk7qzxp3KXJ-48" value="各种抓单服务" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-720" y="720" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="40FOMWwHZyk7qzxp3KXJ-49" value="外部渠道商" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-720" y="30" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="40FOMWwHZyk7qzxp3KXJ-50" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.55;entryY=0.95;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="40FOMWwHZyk7qzxp3KXJ-48" target="40FOMWwHZyk7qzxp3KXJ-49">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-710" y="620" as="sourcePoint" />
+            <mxPoint x="-660" y="570" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="40FOMWwHZyk7qzxp3KXJ-51" value="&lt;span style=&quot;font-size: 12px; text-wrap: wrap; background-color: rgb(251, 251, 251);&quot;&gt;1M/s&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="-240.0029723854812" y="319.964824946318" as="geometry">
+            <mxPoint x="-388" y="42" as="offset" />
           </mxGeometry>
         </mxCell>
       </root>
