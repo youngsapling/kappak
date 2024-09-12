@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-07-17T10:08:57.231Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" etag="GypeVtXHW2tD06sVzhcn" version="24.6.5" type="github">
+<mxfile host="app.diagrams.net" modified="2024-09-12T06:19:04.505Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36" etag="87pK1ENqeci4Wj-e9Jfh" version="24.7.1" type="github">
   <diagram name="第 1 页" id="rxvdr3NrPpfpOXbg-tKn">
     <mxGraphModel dx="3267" dy="2470" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -14,7 +14,7 @@
           <mxGeometry x="-620" y="-50" width="1170" height="260" as="geometry" />
         </mxCell>
         <mxCell id="40FOMWwHZyk7qzxp3KXJ-43" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;国内&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=20;" parent="1" vertex="1">
-          <mxGeometry x="780" y="-50" width="540" height="260" as="geometry" />
+          <mxGeometry x="620" y="-50" width="700" height="260" as="geometry" />
         </mxCell>
         <mxCell id="40FOMWwHZyk7qzxp3KXJ-3" value="Mozio" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
           <mxGeometry x="-220" y="40" width="80" height="80" as="geometry" />
@@ -217,57 +217,95 @@
             <mxPoint x="920" y="860" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="3muvUDkjb76NNgCpq3VB-1" value="Mozio" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+        <mxCell id="3muvUDkjb76NNgCpq3VB-1" value="Mozio" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
           <mxGeometry x="-350" y="40" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="3muvUDkjb76NNgCpq3VB-2" value="&lt;div style=&quot;font-size: 14px;&quot;&gt;&lt;div data-zone-id=&quot;0&quot; data-line-index=&quot;0&quot; data-line=&quot;true&quot; style=&quot;white-space: pre;&quot;&gt;&lt;div&gt;&lt;span data-eleid=&quot;0&quot; class=&quot;text-only&quot;&gt;seller-mozio.bookingmeta.tech&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="3muvUDkjb76NNgCpq3VB-2" value="&lt;div style=&quot;font-size: 14px;&quot;&gt;&lt;div data-zone-id=&quot;0&quot; data-line-index=&quot;0&quot; data-line=&quot;true&quot; style=&quot;white-space: pre;&quot;&gt;&lt;div&gt;&lt;span data-eleid=&quot;0&quot; class=&quot;text-only&quot;&gt;seller-mozio.bookingmeta.tech&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="-420" y="140" width="210" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="3muvUDkjb76NNgCpq3VB-3" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.4;entryY=0.1;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="3muvUDkjb76NNgCpq3VB-2" target="40FOMWwHZyk7qzxp3KXJ-34">
+        <mxCell id="3muvUDkjb76NNgCpq3VB-3" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.4;entryY=0.1;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="3muvUDkjb76NNgCpq3VB-2" target="40FOMWwHZyk7qzxp3KXJ-34" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="-310" y="190" as="sourcePoint" />
             <mxPoint x="-192" y="410" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="3muvUDkjb76NNgCpq3VB-4" value="&lt;span style=&quot;font-size: 16px; text-wrap: wrap; background-color: rgb(251, 251, 251);&quot;&gt;100K/s&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;fontStyle=1" vertex="1" connectable="0" parent="3muvUDkjb76NNgCpq3VB-3">
+        <mxCell id="3muvUDkjb76NNgCpq3VB-4" value="&lt;span style=&quot;font-size: 16px; text-wrap: wrap; background-color: rgb(251, 251, 251);&quot;&gt;100K/s&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;fontStyle=1" parent="3muvUDkjb76NNgCpq3VB-3" vertex="1" connectable="0">
           <mxGeometry x="-0.0998" y="-3" relative="1" as="geometry">
             <mxPoint x="15" y="-42" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="3muvUDkjb76NNgCpq3VB-5" value="&lt;div style=&quot;font-size: 14px;&quot;&gt;&lt;div style=&quot;white-space: pre;&quot; data-line=&quot;true&quot; data-line-index=&quot;0&quot; data-zone-id=&quot;0&quot;&gt;&lt;div&gt;&lt;div data-line=&quot;true&quot; data-line-index=&quot;0&quot; data-zone-id=&quot;0&quot;&gt;&lt;span style=&quot;font-family: MonospacedNumber, LarkHackSafariFont, LarkEmojiFont, LarkChineseQuote, -apple-system, BlinkMacSystemFont, &amp;quot;Helvetica Neue&amp;quot;, Tahoma, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Microsoft Yahei&amp;quot;, Arial, &amp;quot;Hiragino Sans GB&amp;quot;, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;;&quot;&gt;CLB:&lt;/span&gt;&lt;/div&gt;&lt;div data-line=&quot;true&quot; data-line-index=&quot;0&quot; data-zone-id=&quot;0&quot;&gt;&lt;span style=&quot;font-family: MonospacedNumber, LarkHackSafariFont, LarkEmojiFont, LarkChineseQuote, -apple-system, BlinkMacSystemFont, &amp;quot;Helvetica Neue&amp;quot;, Tahoma, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Microsoft Yahei&amp;quot;, Arial, &amp;quot;Hiragino Sans GB&amp;quot;, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;;&quot;&gt;TNA-Travel-Mozio&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="3muvUDkjb76NNgCpq3VB-5" value="&lt;div style=&quot;font-size: 14px;&quot;&gt;&lt;div style=&quot;white-space: pre;&quot; data-line=&quot;true&quot; data-line-index=&quot;0&quot; data-zone-id=&quot;0&quot;&gt;&lt;div&gt;&lt;div data-line=&quot;true&quot; data-line-index=&quot;0&quot; data-zone-id=&quot;0&quot;&gt;&lt;span style=&quot;font-family: MonospacedNumber, LarkHackSafariFont, LarkEmojiFont, LarkChineseQuote, -apple-system, BlinkMacSystemFont, &amp;quot;Helvetica Neue&amp;quot;, Tahoma, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Microsoft Yahei&amp;quot;, Arial, &amp;quot;Hiragino Sans GB&amp;quot;, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;;&quot;&gt;CLB:&lt;/span&gt;&lt;/div&gt;&lt;div data-line=&quot;true&quot; data-line-index=&quot;0&quot; data-zone-id=&quot;0&quot;&gt;&lt;span style=&quot;font-family: MonospacedNumber, LarkHackSafariFont, LarkEmojiFont, LarkChineseQuote, -apple-system, BlinkMacSystemFont, &amp;quot;Helvetica Neue&amp;quot;, Tahoma, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Microsoft Yahei&amp;quot;, Arial, &amp;quot;Hiragino Sans GB&amp;quot;, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;;&quot;&gt;TNA-Travel-Mozio&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="450" y="465" width="170" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="3muvUDkjb76NNgCpq3VB-6" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.55;exitY=0.95;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="3muvUDkjb76NNgCpq3VB-5" target="40FOMWwHZyk7qzxp3KXJ-37">
+        <mxCell id="3muvUDkjb76NNgCpq3VB-6" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.55;exitY=0.95;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="3muvUDkjb76NNgCpq3VB-5" target="40FOMWwHZyk7qzxp3KXJ-37" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="784" y="534" as="sourcePoint" />
             <mxPoint x="455" y="770" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="3muvUDkjb76NNgCpq3VB-7" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.55;exitY=0.95;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="3muvUDkjb76NNgCpq3VB-5" target="40FOMWwHZyk7qzxp3KXJ-38">
+        <mxCell id="3muvUDkjb76NNgCpq3VB-7" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.55;exitY=0.95;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="3muvUDkjb76NNgCpq3VB-5" target="40FOMWwHZyk7qzxp3KXJ-38" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="554" y="589" as="sourcePoint" />
             <mxPoint x="455" y="770" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="3muvUDkjb76NNgCpq3VB-8" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.88;entryY=0.25;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="40FOMWwHZyk7qzxp3KXJ-14" target="40FOMWwHZyk7qzxp3KXJ-24">
+        <mxCell id="3muvUDkjb76NNgCpq3VB-8" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.88;entryY=0.25;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="40FOMWwHZyk7qzxp3KXJ-14" target="40FOMWwHZyk7qzxp3KXJ-24" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="455" y="180" as="sourcePoint" />
             <mxPoint x="128" y="390" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="3muvUDkjb76NNgCpq3VB-9" value="10K/s" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;fontStyle=1" vertex="1" connectable="0" parent="3muvUDkjb76NNgCpq3VB-8">
+        <mxCell id="3muvUDkjb76NNgCpq3VB-9" value="10K/s" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;fontStyle=1" parent="3muvUDkjb76NNgCpq3VB-8" vertex="1" connectable="0">
           <mxGeometry x="-0.218" y="-4" relative="1" as="geometry">
             <mxPoint y="5" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="3muvUDkjb76NNgCpq3VB-10" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.563;exitY=1;exitDx=0;exitDy=0;entryX=0.4;entryY=0.1;entryDx=0;entryDy=0;entryPerimeter=0;exitPerimeter=0;" edge="1" parent="1" source="40FOMWwHZyk7qzxp3KXJ-16" target="40FOMWwHZyk7qzxp3KXJ-21">
+        <mxCell id="3muvUDkjb76NNgCpq3VB-10" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.563;exitY=1;exitDx=0;exitDy=0;entryX=0.4;entryY=0.1;entryDx=0;entryDy=0;entryPerimeter=0;exitPerimeter=0;" parent="1" source="40FOMWwHZyk7qzxp3KXJ-16" target="40FOMWwHZyk7qzxp3KXJ-21" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="1170" y="180" as="sourcePoint" />
             <mxPoint x="1066" y="444" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="3muvUDkjb76NNgCpq3VB-11" value="10K/s" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;fontStyle=1" vertex="1" connectable="0" parent="1">
+        <mxCell id="3muvUDkjb76NNgCpq3VB-11" value="10K/s" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;fontStyle=1" parent="1" vertex="1" connectable="0">
           <mxGeometry x="990.0010501406584" y="259.9973773596954" as="geometry" />
+        </mxCell>
+        <mxCell id="Amk1iJ3oUISWxNkaOak4-1" value="Elife" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="750" y="40" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Amk1iJ3oUISWxNkaOak4-2" value="&lt;div style=&quot;font-size: 14px;&quot;&gt;&lt;div data-zone-id=&quot;0&quot; data-line-index=&quot;0&quot; data-line=&quot;true&quot; style=&quot;white-space: pre;&quot;&gt;&lt;span style=&quot;font-family: MonospacedNumber, LarkHackSafariFont, LarkEmojiFont, LarkChineseQuote, -apple-system, BlinkMacSystemFont, &amp;quot;Helvetica Neue&amp;quot;, Tahoma, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Microsoft Yahei&amp;quot;, Arial, &amp;quot;Hiragino Sans GB&amp;quot;, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;; background-color: initial;&quot;&gt;tna-elife-api&lt;/span&gt;&lt;span style=&quot;background-color: initial; font-family: MonospacedNumber, LarkHackSafariFont, LarkEmojiFont, LarkChineseQuote, -apple-system, BlinkMacSystemFont, &amp;quot;Helvetica Neue&amp;quot;, Tahoma, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Microsoft Yahei&amp;quot;, Arial, &amp;quot;Hiragino Sans GB&amp;quot;, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;background-color: initial; font-family: MonospacedNumber, LarkHackSafariFont, LarkEmojiFont, LarkChineseQuote, -apple-system, BlinkMacSystemFont, &amp;quot;Helvetica Neue&amp;quot;, Tahoma, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Microsoft Yahei&amp;quot;, Arial, &amp;quot;Hiragino Sans GB&amp;quot;, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;;&quot;&gt;didatravel.com&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="685" y="140" width="210" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Amk1iJ3oUISWxNkaOak4-3" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.625;entryY=0.2;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="Amk1iJ3oUISWxNkaOak4-2" target="40FOMWwHZyk7qzxp3KXJ-23">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="795" y="170" as="sourcePoint" />
+            <mxPoint x="1028" y="432" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Amk1iJ3oUISWxNkaOak4-6" value="&lt;span style=&quot;font-size: 16px;&quot;&gt;10K/S&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontStyle=1;fontSize=16;" vertex="1" connectable="0" parent="Amk1iJ3oUISWxNkaOak4-3">
+          <mxGeometry x="-0.3137" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Amk1iJ3oUISWxNkaOak4-4" value="&lt;div&gt;&lt;span style=&quot;font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Hiragino Sans GB&amp;quot;, &amp;quot;Microsoft YaHei&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, Helvetica, Arial, sans-serif; text-align: start; white-space: pre;&quot;&gt;openapi-supplier-elife&lt;/span&gt;&lt;br&gt;&lt;/div&gt;ECS:&lt;span style=&quot;font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Hiragino Sans GB&amp;quot;, &amp;quot;Microsoft YaHei&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, Helvetica, Arial, sans-serif; text-align: start; white-space: pre;&quot;&gt;TNA-Prod1&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1240.5" y="950" width="250" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="Amk1iJ3oUISWxNkaOak4-5" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="Vae47IV2b7B-lvOysrCZ-4" target="Amk1iJ3oUISWxNkaOak4-4">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="580" y="870" as="sourcePoint" />
+            <mxPoint x="1115" y="960" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Amk1iJ3oUISWxNkaOak4-7" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;国内&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=20;" vertex="1" parent="1">
+          <mxGeometry x="780" y="1210" width="740" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="Amk1iJ3oUISWxNkaOak4-8" value="&lt;font style=&quot;font-size: 16px;&quot; face=&quot;-apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif&quot;&gt;&lt;span style=&quot;white-space: pre; font-size: 16px;&quot;&gt;服务提供商：Elife&lt;/span&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="1241" y="1250" width="250" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="Amk1iJ3oUISWxNkaOak4-9" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="Amk1iJ3oUISWxNkaOak4-4" target="Amk1iJ3oUISWxNkaOak4-8">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1530" y="1140" as="sourcePoint" />
+            <mxPoint x="1580" y="1090" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
