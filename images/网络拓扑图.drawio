@@ -343,12 +343,12 @@
             <mxPoint x="-400" y="1210" as="sourcePoint" />
             <mxPoint x="-580" y="380" as="targetPoint" />
             <Array as="points">
-              <mxPoint x="-470" y="1235" />
+              <mxPoint x="-480" y="1240" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="DOe8_TlhOy3JZQ7OfK74-4" value="&lt;span style=&quot;font-size: 16px; text-wrap: wrap; background-color: rgb(251, 251, 251);&quot;&gt;50K/s&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;fontStyle=1" vertex="1" connectable="0" parent="1">
-          <mxGeometry x="220.0011661277303" y="1235.0017700010912" as="geometry" />
+          <mxGeometry x="110.0011661277303" y="1235.0017700010912" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
