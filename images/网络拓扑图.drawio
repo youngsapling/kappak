@@ -1,10 +1,10 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36" version="24.7.13">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36" version="24.7.16">
   <diagram name="第 1 页" id="rxvdr3NrPpfpOXbg-tKn">
-    <mxGraphModel dx="2901" dy="2275" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="3728" dy="2275" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="LZnL9MKMDUjXE6Dacg1b-1" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; ECS&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=20;" vertex="1" parent="1">
+        <mxCell id="LZnL9MKMDUjXE6Dacg1b-1" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; ECS&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=20;" parent="1" vertex="1">
           <mxGeometry x="-80" y="700" width="1620" height="820" as="geometry" />
         </mxCell>
         <mxCell id="iEriNYR4oLIDM0LdQvEy-3" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;阿里云-杭州&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=20;" parent="1" vertex="1">
@@ -14,10 +14,10 @@
           <mxGeometry x="-420" y="310" width="662.5" height="310" as="geometry" />
         </mxCell>
         <mxCell id="40FOMWwHZyk7qzxp3KXJ-44" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;国外&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=20;" parent="1" vertex="1">
-          <mxGeometry x="-620" y="-50" width="1170" height="260" as="geometry" />
+          <mxGeometry x="-830" y="-50" width="1380" height="260" as="geometry" />
         </mxCell>
         <mxCell id="40FOMWwHZyk7qzxp3KXJ-43" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;国内&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=20;" parent="1" vertex="1">
-          <mxGeometry x="620" y="-50" width="700" height="260" as="geometry" />
+          <mxGeometry x="620" y="-50" width="570" height="260" as="geometry" />
         </mxCell>
         <mxCell id="40FOMWwHZyk7qzxp3KXJ-3" value="Mozio" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
           <mxGeometry x="-220" y="40" width="80" height="80" as="geometry" />
@@ -29,7 +29,7 @@
           <mxGeometry x="20" y="50" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="40FOMWwHZyk7qzxp3KXJ-6" value="同程" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
-          <mxGeometry x="935" y="40" width="80" height="80" as="geometry" />
+          <mxGeometry x="750" y="30" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="40FOMWwHZyk7qzxp3KXJ-7" value="渠道商端" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
           <mxGeometry x="405" y="50" width="80" height="80" as="geometry" />
@@ -38,7 +38,7 @@
           <mxGeometry x="210" y="45" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="40FOMWwHZyk7qzxp3KXJ-9" value="平台端" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
-          <mxGeometry x="1120" y="40" width="80" height="80" as="geometry" />
+          <mxGeometry x="985" y="30" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="40FOMWwHZyk7qzxp3KXJ-12" value="&lt;div style=&quot;font-size: 14px;&quot;&gt;&lt;div data-zone-id=&quot;0&quot; data-line-index=&quot;0&quot; data-line=&quot;true&quot; style=&quot;white-space: pre;&quot;&gt;&lt;span style=&quot;font-family: MonospacedNumber, LarkHackSafariFont, LarkEmojiFont, LarkChineseQuote, -apple-system, BlinkMacSystemFont, &amp;quot;Helvetica Neue&amp;quot;, Tahoma, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Microsoft Yahei&amp;quot;, Arial, &amp;quot;Hiragino Sans GB&amp;quot;, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;;&quot;&gt;tna-channel-int.&lt;/span&gt;&lt;span style=&quot;font-family: MonospacedNumber, LarkHackSafariFont, LarkEmojiFont, LarkChineseQuote, -apple-system, BlinkMacSystemFont, &amp;quot;Helvetica Neue&amp;quot;, Tahoma, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Microsoft Yahei&amp;quot;, Arial, &amp;quot;Hiragino Sans GB&amp;quot;, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;;&quot;&gt;didatravel.com&lt;/span&gt;&lt;/div&gt;&lt;div data-zone-id=&quot;0&quot; data-line-index=&quot;0&quot; data-line=&quot;true&quot; style=&quot;white-space: pre;&quot;&gt;&lt;div&gt;&lt;div data-line=&quot;true&quot; data-line-index=&quot;0&quot; data-zone-id=&quot;0&quot;&gt;&lt;span style=&quot;font-family: MonospacedNumber, LarkHackSafariFont, LarkEmojiFont, LarkChineseQuote, -apple-system, BlinkMacSystemFont, &amp;quot;Helvetica Neue&amp;quot;, Tahoma, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Microsoft Yahei&amp;quot;, Arial, &amp;quot;Hiragino Sans GB&amp;quot;, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;;&quot;&gt;tna-channel-api-int&lt;/span&gt;&lt;span style=&quot;background-color: initial; font-family: MonospacedNumber, LarkHackSafariFont, LarkEmojiFont, LarkChineseQuote, -apple-system, BlinkMacSystemFont, &amp;quot;Helvetica Neue&amp;quot;, Tahoma, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Microsoft Yahei&amp;quot;, Arial, &amp;quot;Hiragino Sans GB&amp;quot;, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;background-color: initial; font-family: MonospacedNumber, LarkHackSafariFont, LarkEmojiFont, LarkChineseQuote, -apple-system, BlinkMacSystemFont, &amp;quot;Helvetica Neue&amp;quot;, Tahoma, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Microsoft Yahei&amp;quot;, Arial, &amp;quot;Hiragino Sans GB&amp;quot;, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;;&quot;&gt;didatravel.com&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="340" y="140" width="210" height="30" as="geometry" />
@@ -47,10 +47,10 @@
           <mxGeometry x="135" y="140" width="210" height="30" as="geometry" />
         </mxCell>
         <mxCell id="40FOMWwHZyk7qzxp3KXJ-15" value="&lt;div style=&quot;font-size: 14px;&quot;&gt;&lt;div style=&quot;white-space: pre;&quot; data-line=&quot;true&quot; data-line-index=&quot;0&quot; data-zone-id=&quot;0&quot;&gt;&lt;span style=&quot;font-family: MonospacedNumber, LarkHackSafariFont, LarkEmojiFont, LarkChineseQuote, -apple-system, BlinkMacSystemFont, &amp;quot;Helvetica Neue&amp;quot;, Tahoma, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Microsoft Yahei&amp;quot;, Arial, &amp;quot;Hiragino Sans GB&amp;quot;, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;; background-color: initial;&quot;&gt;tna-admin&lt;/span&gt;&lt;span style=&quot;font-family: MonospacedNumber, LarkHackSafariFont, LarkEmojiFont, LarkChineseQuote, -apple-system, BlinkMacSystemFont, &amp;quot;Helvetica Neue&amp;quot;, Tahoma, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Microsoft Yahei&amp;quot;, Arial, &amp;quot;Hiragino Sans GB&amp;quot;, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;font-family: MonospacedNumber, LarkHackSafariFont, LarkEmojiFont, LarkChineseQuote, -apple-system, BlinkMacSystemFont, &amp;quot;Helvetica Neue&amp;quot;, Tahoma, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Microsoft Yahei&amp;quot;, Arial, &amp;quot;Hiragino Sans GB&amp;quot;, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;;&quot;&gt;didaadmin.com&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;white-space: pre;&quot; data-line=&quot;true&quot; data-line-index=&quot;0&quot; data-zone-id=&quot;0&quot;&gt;&lt;div data-line=&quot;true&quot; data-line-index=&quot;0&quot; data-zone-id=&quot;0&quot;&gt;&lt;span style=&quot;font-family: MonospacedNumber, LarkHackSafariFont, LarkEmojiFont, LarkChineseQuote, -apple-system, BlinkMacSystemFont, &amp;quot;Helvetica Neue&amp;quot;, Tahoma, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Microsoft Yahei&amp;quot;, Arial, &amp;quot;Hiragino Sans GB&amp;quot;, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;; background-color: initial;&quot;&gt;tna-admin-api&lt;/span&gt;&lt;span style=&quot;font-family: MonospacedNumber, LarkHackSafariFont, LarkEmojiFont, LarkChineseQuote, -apple-system, BlinkMacSystemFont, &amp;quot;Helvetica Neue&amp;quot;, Tahoma, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Microsoft Yahei&amp;quot;, Arial, &amp;quot;Hiragino Sans GB&amp;quot;, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;font-family: MonospacedNumber, LarkHackSafariFont, LarkEmojiFont, LarkChineseQuote, -apple-system, BlinkMacSystemFont, &amp;quot;Helvetica Neue&amp;quot;, Tahoma, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Microsoft Yahei&amp;quot;, Arial, &amp;quot;Hiragino Sans GB&amp;quot;, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;;&quot;&gt;didaadmin.com&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="1055" y="140" width="210" height="30" as="geometry" />
+          <mxGeometry x="920" y="130" width="210" height="30" as="geometry" />
         </mxCell>
         <mxCell id="40FOMWwHZyk7qzxp3KXJ-16" value="&lt;div style=&quot;font-size: 14px;&quot;&gt;&lt;div data-zone-id=&quot;0&quot; data-line-index=&quot;0&quot; data-line=&quot;true&quot; style=&quot;white-space: pre;&quot;&gt;&lt;span style=&quot;font-family: MonospacedNumber, LarkHackSafariFont, LarkEmojiFont, LarkChineseQuote, -apple-system, BlinkMacSystemFont, &amp;quot;Helvetica Neue&amp;quot;, Tahoma, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Microsoft Yahei&amp;quot;, Arial, &amp;quot;Hiragino Sans GB&amp;quot;, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;; background-color: initial;&quot;&gt;tna-tc-api&lt;/span&gt;&lt;span style=&quot;background-color: initial; font-family: MonospacedNumber, LarkHackSafariFont, LarkEmojiFont, LarkChineseQuote, -apple-system, BlinkMacSystemFont, &amp;quot;Helvetica Neue&amp;quot;, Tahoma, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Microsoft Yahei&amp;quot;, Arial, &amp;quot;Hiragino Sans GB&amp;quot;, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;background-color: initial; font-family: MonospacedNumber, LarkHackSafariFont, LarkEmojiFont, LarkChineseQuote, -apple-system, BlinkMacSystemFont, &amp;quot;Helvetica Neue&amp;quot;, Tahoma, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Microsoft Yahei&amp;quot;, Arial, &amp;quot;Hiragino Sans GB&amp;quot;, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;;&quot;&gt;didatravel.com&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="870" y="140" width="210" height="30" as="geometry" />
+          <mxGeometry x="685" y="130" width="210" height="30" as="geometry" />
         </mxCell>
         <mxCell id="40FOMWwHZyk7qzxp3KXJ-17" value="&lt;div style=&quot;font-size: 14px;&quot;&gt;&lt;div data-zone-id=&quot;0&quot; data-line-index=&quot;0&quot; data-line=&quot;true&quot; style=&quot;white-space: pre;&quot;&gt;&lt;span style=&quot;font-family: MonospacedNumber, LarkHackSafariFont, LarkEmojiFont, LarkChineseQuote, -apple-system, BlinkMacSystemFont, &amp;quot;Helvetica Neue&amp;quot;, Tahoma, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Microsoft Yahei&amp;quot;, Arial, &amp;quot;Hiragino Sans GB&amp;quot;, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;; background-color: initial;&quot;&gt;tna-emerging-api-int&lt;/span&gt;&lt;span style=&quot;background-color: initial; font-family: MonospacedNumber, LarkHackSafariFont, LarkEmojiFont, LarkChineseQuote, -apple-system, BlinkMacSystemFont, &amp;quot;Helvetica Neue&amp;quot;, Tahoma, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Microsoft Yahei&amp;quot;, Arial, &amp;quot;Hiragino Sans GB&amp;quot;, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;background-color: initial; font-family: MonospacedNumber, LarkHackSafariFont, LarkEmojiFont, LarkChineseQuote, -apple-system, BlinkMacSystemFont, &amp;quot;Helvetica Neue&amp;quot;, Tahoma, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Microsoft Yahei&amp;quot;, Arial, &amp;quot;Hiragino Sans GB&amp;quot;, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;;&quot;&gt;didatravel.com&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="-45" y="-15" width="210" height="30" as="geometry" />
@@ -70,10 +70,10 @@
         <mxCell id="40FOMWwHZyk7qzxp3KXJ-24" value="&lt;div style=&quot;font-size: 14px;&quot;&gt;&lt;div style=&quot;white-space: pre;&quot; data-line=&quot;true&quot; data-line-index=&quot;0&quot; data-zone-id=&quot;0&quot;&gt;&lt;div data-line=&quot;true&quot; data-line-index=&quot;0&quot; data-zone-id=&quot;0&quot;&gt;&lt;div&gt;&lt;div data-line=&quot;true&quot; data-line-index=&quot;0&quot; data-zone-id=&quot;0&quot;&gt;&lt;span style=&quot;font-family: MonospacedNumber, LarkHackSafariFont, LarkEmojiFont, LarkChineseQuote, -apple-system, BlinkMacSystemFont, &amp;quot;Helvetica Neue&amp;quot;, Tahoma, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Microsoft Yahei&amp;quot;, Arial, &amp;quot;Hiragino Sans GB&amp;quot;, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;;&quot;&gt;NLB:&lt;/span&gt;&lt;/div&gt;&lt;div data-line=&quot;true&quot; data-line-index=&quot;0&quot; data-zone-id=&quot;0&quot;&gt;&lt;span style=&quot;font-family: MonospacedNumber, LarkHackSafariFont, LarkEmojiFont, LarkChineseQuote, -apple-system, BlinkMacSystemFont, &amp;quot;Helvetica Neue&amp;quot;, Tahoma, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Microsoft Yahei&amp;quot;, Arial, &amp;quot;Hiragino Sans GB&amp;quot;, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;;&quot;&gt;TNA-Travel-Int-Prod&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="-30" y="360" width="170" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="40FOMWwHZyk7qzxp3KXJ-26" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.625;entryY=0.2;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="40FOMWwHZyk7qzxp3KXJ-15" target="40FOMWwHZyk7qzxp3KXJ-21" edge="1">
+        <mxCell id="40FOMWwHZyk7qzxp3KXJ-26" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.4;entryY=0.1;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="40FOMWwHZyk7qzxp3KXJ-15" target="40FOMWwHZyk7qzxp3KXJ-21" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="860" y="360" as="sourcePoint" />
-            <mxPoint x="910" y="310" as="targetPoint" />
+            <mxPoint x="725" y="350" as="sourcePoint" />
+            <mxPoint x="921.25" y="424" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="40FOMWwHZyk7qzxp3KXJ-29" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="40FOMWwHZyk7qzxp3KXJ-12" target="40FOMWwHZyk7qzxp3KXJ-24" edge="1">
@@ -132,14 +132,14 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="40FOMWwHZyk7qzxp3KXJ-49" value="外部渠道商" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="-600" y="30" width="160" height="110" as="geometry" />
+          <mxGeometry x="-810" y="30" width="160" height="110" as="geometry" />
         </mxCell>
         <mxCell id="40FOMWwHZyk7qzxp3KXJ-50" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.55;entryY=0.95;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="Vae47IV2b7B-lvOysrCZ-11" target="40FOMWwHZyk7qzxp3KXJ-49" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="30" y="980" as="sourcePoint" />
             <mxPoint x="-660" y="570" as="targetPoint" />
             <Array as="points">
-              <mxPoint x="-510" y="1000" />
+              <mxPoint x="-720" y="1000" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -176,7 +176,9 @@
           <mxGeometry x="55.0011661277303" y="260.00177000109124" as="geometry" />
         </mxCell>
         <mxCell id="iEriNYR4oLIDM0LdQvEy-12" value="10K/s" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;fontStyle=1" parent="1" vertex="1" connectable="0">
-          <mxGeometry x="1130.0010501406584" y="259.9973773596954" as="geometry" />
+          <mxGeometry x="1010.0010501406584" y="269.9973773596954" as="geometry">
+            <mxPoint x="8" y="-11" as="offset" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="Vae47IV2b7B-lvOysrCZ-3" value="&lt;div&gt;&lt;span style=&quot;font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Hiragino Sans GB&amp;quot;, &amp;quot;Microsoft YaHei&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, Helvetica, Arial, sans-serif; text-align: start; white-space: pre;&quot;&gt;System&lt;/span&gt;&lt;br&gt;&lt;/div&gt;ECS:&lt;span style=&quot;font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Hiragino Sans GB&amp;quot;, &amp;quot;Microsoft YaHei&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, Helvetica, Arial, sans-serif; text-align: start; white-space: pre;&quot;&gt;TNA-Prod1&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="414" y="1190" width="250" height="90" as="geometry" />
@@ -228,7 +230,7 @@
         </mxCell>
         <mxCell id="3muvUDkjb76NNgCpq3VB-4" value="&lt;span style=&quot;font-size: 16px; text-wrap: wrap; background-color: rgb(251, 251, 251);&quot;&gt;100K/s&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;fontStyle=1" parent="3muvUDkjb76NNgCpq3VB-3" vertex="1" connectable="0">
           <mxGeometry x="-0.0998" y="-3" relative="1" as="geometry">
-            <mxPoint x="15" y="-42" as="offset" />
+            <mxPoint x="15" y="68" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="3muvUDkjb76NNgCpq3VB-5" value="&lt;div style=&quot;font-size: 14px;&quot;&gt;&lt;div style=&quot;white-space: pre;&quot; data-line=&quot;true&quot; data-line-index=&quot;0&quot; data-zone-id=&quot;0&quot;&gt;&lt;div&gt;&lt;div data-line=&quot;true&quot; data-line-index=&quot;0&quot; data-zone-id=&quot;0&quot;&gt;&lt;span style=&quot;font-family: MonospacedNumber, LarkHackSafariFont, LarkEmojiFont, LarkChineseQuote, -apple-system, BlinkMacSystemFont, &amp;quot;Helvetica Neue&amp;quot;, Tahoma, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Microsoft Yahei&amp;quot;, Arial, &amp;quot;Hiragino Sans GB&amp;quot;, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;;&quot;&gt;CLB:&lt;/span&gt;&lt;/div&gt;&lt;div data-line=&quot;true&quot; data-line-index=&quot;0&quot; data-zone-id=&quot;0&quot;&gt;&lt;span style=&quot;font-family: MonospacedNumber, LarkHackSafariFont, LarkEmojiFont, LarkChineseQuote, -apple-system, BlinkMacSystemFont, &amp;quot;Helvetica Neue&amp;quot;, Tahoma, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Microsoft Yahei&amp;quot;, Arial, &amp;quot;Hiragino Sans GB&amp;quot;, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;;&quot;&gt;TNA-Travel-Mozio&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" parent="1" vertex="1">
@@ -257,31 +259,17 @@
             <mxPoint y="5" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="3muvUDkjb76NNgCpq3VB-10" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.563;exitY=1;exitDx=0;exitDy=0;entryX=0.847;entryY=0.233;entryDx=0;entryDy=0;entryPerimeter=0;exitPerimeter=0;" parent="1" source="40FOMWwHZyk7qzxp3KXJ-16" target="40FOMWwHZyk7qzxp3KXJ-23" edge="1">
+        <mxCell id="3muvUDkjb76NNgCpq3VB-10" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.563;exitY=1;exitDx=0;exitDy=0;entryX=0.4;entryY=0.1;entryDx=0;entryDy=0;entryPerimeter=0;exitPerimeter=0;" parent="1" source="40FOMWwHZyk7qzxp3KXJ-16" target="40FOMWwHZyk7qzxp3KXJ-23" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="1170" y="180" as="sourcePoint" />
             <mxPoint x="1066" y="444" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="3muvUDkjb76NNgCpq3VB-11" value="10K/s" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;fontStyle=1" parent="1" vertex="1" connectable="0">
-          <mxGeometry x="990.0010501406584" y="259.9973773596954" as="geometry" />
+          <mxGeometry x="770.0010501406584" y="259.9973773596954" as="geometry" />
         </mxCell>
         <mxCell id="Amk1iJ3oUISWxNkaOak4-1" value="Elife" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
-          <mxGeometry x="750" y="40" width="80" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="Amk1iJ3oUISWxNkaOak4-2" value="&lt;div style=&quot;font-size: 14px;&quot;&gt;&lt;div data-zone-id=&quot;0&quot; data-line-index=&quot;0&quot; data-line=&quot;true&quot; style=&quot;white-space: pre;&quot;&gt;&lt;span style=&quot;font-family: MonospacedNumber, LarkHackSafariFont, LarkEmojiFont, LarkChineseQuote, -apple-system, BlinkMacSystemFont, &amp;quot;Helvetica Neue&amp;quot;, Tahoma, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Microsoft Yahei&amp;quot;, Arial, &amp;quot;Hiragino Sans GB&amp;quot;, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;; background-color: initial;&quot;&gt;tna-elife-api&lt;/span&gt;&lt;span style=&quot;background-color: initial; font-family: MonospacedNumber, LarkHackSafariFont, LarkEmojiFont, LarkChineseQuote, -apple-system, BlinkMacSystemFont, &amp;quot;Helvetica Neue&amp;quot;, Tahoma, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Microsoft Yahei&amp;quot;, Arial, &amp;quot;Hiragino Sans GB&amp;quot;, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;background-color: initial; font-family: MonospacedNumber, LarkHackSafariFont, LarkEmojiFont, LarkChineseQuote, -apple-system, BlinkMacSystemFont, &amp;quot;Helvetica Neue&amp;quot;, Tahoma, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Microsoft Yahei&amp;quot;, Arial, &amp;quot;Hiragino Sans GB&amp;quot;, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;;&quot;&gt;didatravel.com&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="685" y="140" width="210" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="Amk1iJ3oUISWxNkaOak4-3" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.625;entryY=0.2;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="Amk1iJ3oUISWxNkaOak4-2" target="40FOMWwHZyk7qzxp3KXJ-23" edge="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="795" y="170" as="sourcePoint" />
-            <mxPoint x="1028" y="432" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="Amk1iJ3oUISWxNkaOak4-6" value="&lt;span style=&quot;font-size: 16px;&quot;&gt;10K/S&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontStyle=1;fontSize=16;" parent="Amk1iJ3oUISWxNkaOak4-3" vertex="1" connectable="0">
-          <mxGeometry x="-0.3137" relative="1" as="geometry">
-            <mxPoint as="offset" />
-          </mxGeometry>
+          <mxGeometry x="-520" y="40" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="Amk1iJ3oUISWxNkaOak4-4" value="&lt;div&gt;&lt;span style=&quot;font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Hiragino Sans GB&amp;quot;, &amp;quot;Microsoft YaHei&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, Helvetica, Arial, sans-serif; text-align: start; white-space: pre;&quot;&gt;openapi-supplier-elife&lt;/span&gt;&lt;br&gt;&lt;/div&gt;ECS:&lt;span style=&quot;font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Hiragino Sans GB&amp;quot;, &amp;quot;Microsoft YaHei&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, Helvetica, Arial, sans-serif; text-align: start; white-space: pre;&quot;&gt;TNA-Prod1&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="1240.5" y="950" width="250" height="90" as="geometry" />
@@ -304,35 +292,35 @@
             <mxPoint x="1580" y="1090" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="LZnL9MKMDUjXE6Dacg1b-2" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0.01;entryY=0.628;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="Vae47IV2b7B-lvOysrCZ-4" target="Vae47IV2b7B-lvOysrCZ-3">
+        <mxCell id="LZnL9MKMDUjXE6Dacg1b-2" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" parent="1" source="Vae47IV2b7B-lvOysrCZ-4" target="Vae47IV2b7B-lvOysrCZ-3" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="360" y="1020" as="sourcePoint" />
             <mxPoint x="410" y="970" as="targetPoint" />
             <Array as="points">
               <mxPoint x="370" y="930" />
-              <mxPoint x="370" y="1247" />
+              <mxPoint x="370" y="1190" />
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="LZnL9MKMDUjXE6Dacg1b-3" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="Vae47IV2b7B-lvOysrCZ-5" target="Vae47IV2b7B-lvOysrCZ-3">
+        <mxCell id="LZnL9MKMDUjXE6Dacg1b-3" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="Vae47IV2b7B-lvOysrCZ-5" target="Vae47IV2b7B-lvOysrCZ-3" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="620" y="1130" as="sourcePoint" />
             <mxPoint x="670" y="1080" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="LZnL9MKMDUjXE6Dacg1b-4" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="Vae47IV2b7B-lvOysrCZ-6" target="Vae47IV2b7B-lvOysrCZ-3">
+        <mxCell id="LZnL9MKMDUjXE6Dacg1b-4" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="Vae47IV2b7B-lvOysrCZ-6" target="Vae47IV2b7B-lvOysrCZ-3" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="860" y="1160" as="sourcePoint" />
             <mxPoint x="910" y="1110" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="LZnL9MKMDUjXE6Dacg1b-5" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="Vae47IV2b7B-lvOysrCZ-7" target="Vae47IV2b7B-lvOysrCZ-3">
+        <mxCell id="LZnL9MKMDUjXE6Dacg1b-5" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="Vae47IV2b7B-lvOysrCZ-7" target="Vae47IV2b7B-lvOysrCZ-3" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="1030" y="1220" as="sourcePoint" />
             <mxPoint x="1080" y="1170" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="LZnL9MKMDUjXE6Dacg1b-6" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.888;entryY=0.004;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="Vae47IV2b7B-lvOysrCZ-3" target="Amk1iJ3oUISWxNkaOak4-7">
+        <mxCell id="LZnL9MKMDUjXE6Dacg1b-6" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.888;entryY=0.004;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="Vae47IV2b7B-lvOysrCZ-3" target="Amk1iJ3oUISWxNkaOak4-7" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="600" y="1390" as="sourcePoint" />
             <mxPoint x="650" y="1340" as="targetPoint" />
@@ -340,6 +328,27 @@
               <mxPoint x="1440" y="1235" />
             </Array>
           </mxGeometry>
+        </mxCell>
+        <mxCell id="DOe8_TlhOy3JZQ7OfK74-1" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" target="40FOMWwHZyk7qzxp3KXJ-24">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-465" y="150" as="sourcePoint" />
+            <mxPoint x="-362" y="352" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DOe8_TlhOy3JZQ7OfK74-2" value="&lt;span style=&quot;font-size: 16px; text-wrap: wrap; background-color: rgb(251, 251, 251);&quot;&gt;10K/s&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;fontStyle=1" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="-239.9988338722697" y="270.00177000109124" as="geometry" />
+        </mxCell>
+        <mxCell id="DOe8_TlhOy3JZQ7OfK74-3" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="Vae47IV2b7B-lvOysrCZ-3" target="Amk1iJ3oUISWxNkaOak4-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-400" y="1210" as="sourcePoint" />
+            <mxPoint x="-580" y="380" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-470" y="1235" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DOe8_TlhOy3JZQ7OfK74-4" value="&lt;span style=&quot;font-size: 16px; text-wrap: wrap; background-color: rgb(251, 251, 251);&quot;&gt;50K/s&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;fontStyle=1" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="220.0011661277303" y="1235.0017700010912" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
